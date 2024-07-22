@@ -1,0 +1,11 @@
+/* DEFININDO A COR BRANCO DE FUNDO PARA A PÁGINA TODA */
+body{
+    background-color: var(--fundo-branco);
+}
+
+/* VARIAVEIS GLOBAIS */
+:root{
+    --branco:#FFF;
+    --verde-escuro: #2F5B2E;
+    --preto:#000;
+}
