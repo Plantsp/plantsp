@@ -3,7 +3,8 @@
     height: 100px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    justify-content: space-between;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -17,9 +18,8 @@
 .search-bar {
     display: flex;
     align-items: center;
-    width: 70%; /* Ajuste conforme necessário */
+    width: 100%; /* Ajuste conforme necessário */
     position: relative;
-    padding-left: 5%
   }
   
   .search-input {
@@ -52,7 +52,6 @@
 .icon-container {
     display: flex;
     align-items: center;
-    padding-left: 4%;
   }
   
   .icon {
@@ -66,4 +65,34 @@
   .icon:hover {
     transform: scale(1.2);
     color: #d1d1d1;
+}
+
+.navigation {
+  margin-top: 10px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 0 15px;
+}
+
+.nav-list a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+  padding: 7px 15px;
+  border-radius: 8px;
+}
+
+.nav-list a:hover {
+  background-color: #fff;
+  color:#666;
+
 }
