@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.footer{
+    background-color: var(--verde-escuro);
+    height: 30%;
+    display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-text {
+    flex: 1;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .social-icon {
+    margin: 0 7px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2);
+    color: #d1d1d1;
+  }
+  
+  .footer-copy {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .social-icons a {
+    color: inherit;
+    text-decoration: none;
+  }

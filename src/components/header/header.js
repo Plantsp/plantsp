@@ -1,6 +1,6 @@
 import { Col,Row } from 'react-bootstrap';
 import './header.css';
-import '../../styles/global.css'
+import '../../styles/global.css';
 import { FaPercent, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
@@ -13,7 +13,7 @@ function Header() {
         </div>
 
         {/* BARRA DE PESQUISA */}
-        <div className='d-flex flex-column px-2 justify-content-end' style={{backgroundColor: "blue"}}>
+        <div className='d-flex flex-column px-2 justify-content-end'>
           <div className="search-bar">
             <FaSearch className="search-icon" />
             <input 
@@ -25,7 +25,7 @@ function Header() {
 
           {/* NAVEGAÇÃO DO HEADER */}
           <nav className="navigation">
-            <ul className="nav-list" style={{backgroundColor: "yellow"}}>
+            <ul className="nav-list">
               <li><a href="#home">Home</a></li>
               <li><a href="#meuspedidos">Meus pedidos</a></li>
               <li><a href="#atendimento">Atendimento</a></li>
