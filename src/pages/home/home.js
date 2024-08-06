@@ -1,29 +1,18 @@
-import './home.css';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+import Carousel from '../../components/carousel/carousel';
 
-import '../../App.css';
 
 function Home() {
+  
   return (
     <div>
         <Header></Header>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
-          <p>conteudo</p>
+
+        <div className="container py-5">
+          <Carousel/>
+        </div>
+
         <Footer></Footer>
     </div> 
   );
