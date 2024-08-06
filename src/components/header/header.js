@@ -1,6 +1,6 @@
 import { Col,Row } from 'react-bootstrap';
 import './header.css';
-import '../../styles/global.css';
+
 import { FaPercent, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
