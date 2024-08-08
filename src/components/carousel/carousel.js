@@ -15,7 +15,7 @@ function Carousel({products}) {
 
     return (
         <div className='d-flex align-items-center justify-content-between'>
-            <FaChevronLeft className='btn-prev ' size={48} style={{cursor:"pointer", opacity: currentIndex > 0 ? 1 : 0.3 }} color={"var(--verde-escuro)"}/>
+            <FaChevronLeft className='btn-prev ' size={48} style={{cursor: currentIndex > 0 ? "pointer" : "default", opacity: currentIndex > 0 ? 1 : 0 }} color={"var(--verde-escuro)"}/>
 
             <Swiper 
                 navigation={{
