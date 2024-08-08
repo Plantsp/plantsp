@@ -32,3 +32,10 @@ body{
     --verde-escuro: #2F5B2E;
     --preto:#000;
 }
+
+.title-top{
+  color:#114310;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
