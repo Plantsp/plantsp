@@ -159,14 +159,14 @@ export const listaProdutos = [
         "categoria": "Plantas",
         "avaliacao": 4.6
       },
-      {
-        "nome": "Rosa Vermelha",
-        "descricao": "Uma bela rosa vermelha com pétalas suaves.",
-        "preco": 10.99,
-        "desconto": 0.1,
-        "categoria": "Flores",
-        "avaliacao": 4.8
-      },
+      // {
+      //   "nome": "Rosa Vermelha",
+      //   "descricao": "Uma bela rosa vermelha com pétalas suaves.",
+      //   "preco": 10.99,
+      //   "desconto": 0.1,
+      //   "categoria": "Flores",
+      //   "avaliacao": 4.8
+      // },
       {
         "nome": "Vaso de Cerâmica",
         "descricao": "Vaso de cerâmica feito à mão, perfeito para plantas pequenas.",
@@ -180,7 +180,7 @@ export const listaProdutos = [
         "descricao": "Fertilizante orgânico para promover o crescimento saudável das plantas.",
         "preco": 5.75,
         "desconto": 0.05,
-        "categoria": "Jardinagem",
+        "categoria": "Adubos",
         "avaliacao": 4.7
       },
       {
@@ -198,5 +198,21 @@ export const listaProdutos = [
         "desconto": 0,
         "categoria": "Sementes",
         "avaliacao": 4.6
-    }
+    },
+    {
+      "nome": "Fertilizante Granulado",
+      "descricao": "Fertilizante granulado de liberação lenta para todas as plantas.",
+      "preco": 21.99,
+      "desconto": 0.1,
+      "categoria": "Adubos",
+      "avaliacao": 4.6
+  },
+  {
+      "nome": "Fertilizante para Orquídeas",
+      "descricao": "Fertilizante especialmente formulado para orquídeas.",
+      "preco": 18.99,
+      "desconto": 0.1,
+      "categoria": "Adubos",
+      "avaliacao": 4.8
+  }
 ]
