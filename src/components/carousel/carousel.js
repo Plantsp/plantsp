@@ -10,7 +10,7 @@ import { Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import ProductCard from '../card/ProductCard';
 
-function Carousel() {
+function Carousel({products}) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
@@ -28,15 +28,15 @@ function Carousel() {
                 className="mySwiper px-5"
                 onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
             >
-                    <SwiperSlide><ProductCard/></SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide> 
+                {
+                    products.map((produto, index) => {
+                        return (
+                            <SwiperSlide className="d-flex align-items-stretch">
+                                <ProductCard produto={produto} key={index}/>
+                            </SwiperSlide>
+                        )
+                    })
+                }    
             </Swiper>
 
             <FaChevronRight className='btn-next' size={48} style={{cursor:"pointer", opacity: currentIndex < 6 ? 1 : 0.3 }} color={"var(--verde-escuro)"}/>

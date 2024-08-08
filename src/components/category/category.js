@@ -24,11 +24,13 @@ function SetIcon(title){
 }
 
 
-
-function Category({icon, title}) {
+function Category({title, filterCategory}) {
     return (
-        <div className="card-category my-5" style={{ width: "18rem", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor:"pointer"}}>
-            {/* <SetIcon title={title} /> */}
+        <div 
+            className="card-category my-5 d-flex flex-column align-items-center justify-content-center" 
+            style={{ width: "18rem", cursor:"pointer"}}
+            onClick={() => filterCategory(title)}
+        >
             {SetIcon(title)}
            
             <div className="card-body">
@@ -38,4 +40,22 @@ function Category({icon, title}) {
     );
 }
   
-export default Category;
+function CategorySearch({filterCategory}){
+    return(
+        <section>
+            <h1 className='title-top'>PESQUISAR POR CATEGORIAS</h1>
+            
+            <div className="categories-container" style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+              <Category title="Plantas" filterCategory={filterCategory}/> 
+              <Category title="Vasos" filterCategory={filterCategory}/>
+              <Category title="Adubos" filterCategory={filterCategory}/>
+              <Category title="Sementes" filterCategory={filterCategory}/>
+              <Category title="Ferramentas" filterCategory={filterCategory}/>
+              <Category title="Terra" filterCategory={filterCategory}/>
+            </div>
+        </section>
+    )
+}
+
+
+export default CategorySearch;

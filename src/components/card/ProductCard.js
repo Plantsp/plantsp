@@ -1,15 +1,14 @@
 import ReactStars from "react-rating-stars-component";
 
-function ProductCard() {
+function ProductCard({produto}) {
   const planta = process.env.PUBLIC_URL + '/assets/img/planta.png';
+
   return (
-    <div className="card" style={{ width: "18rem", cursor: "pointer" }}>
-        <img src={planta} alt='planta' className="card-img-top" style={{height:240, objectFit: "cover"}}/>
+    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() => console.log("produto clicado: ", produto)}>
+        <img src={planta} alt='planta' className="card-img-top object-fit-cover" height={240} />
         <div className="card-body">
-            <h5 className="card-title">Card title 1</h5>
-            <p className="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
+            <h5 className="card-title">{produto.nome}</h5>
+            <p className="card-text">R${produto.preco.toString().replace(".", ",")}</p>
             <ReactStars
               count={5}
               halfIcon={<i className="fa fa-star-half-alt"></i>}
@@ -17,7 +16,7 @@ function ProductCard() {
               isHalf={true}
               edit={false}
               size={24}
-              value={3.5}
+              value={produto.avaliacao}
               activeColor="#ffd700"
             />
         </div>
