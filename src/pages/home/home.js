@@ -9,9 +9,11 @@ import ProductCard from '../../components/card/ProductCard';
 
 function Home() {
   const [products, setProducts] = useState(listaProdutos);
+  const [activeCategory, setActiveCategory] = useState("");
 
   const filterCategory = (category) =>{
     setProducts(listaProdutos.filter((produto) => produto.categoria == category));
+    setActiveCategory(category);
   }
 
   return (
@@ -19,7 +21,7 @@ function Home() {
         <Header></Header>
 
         <div className="container py-5">
-          <CategorySearch filterCategory={filterCategory}/>
+          <CategorySearch filterCategory={filterCategory} activeCategory={activeCategory}/>
 
           <Row className="px-4">
           {

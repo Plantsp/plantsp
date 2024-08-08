@@ -14,19 +14,25 @@
   /* transform: translateY(-10px); */
 }
 
+/* Efeito de clique (ativo) */
+.active,
+.card-category:hover {
+  background-color: var(--verde-escuro);
+  color: white !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .card-category-title {
   font-family: 'Open Sans', sans-serif;
   margin-top: 10px;
-  /* Espaçamento superior do título */
 }
 
 .card-icon {
   font-size: 36px;
-  /* Tamanho do ícone */
   color: #331800;
-  /* Cor do ícone */
 }
 
-.card-category:hover .card-icon {
-  color: white; /* Cor do ícone quando o card está em hover */
+.active > .card-icon,
+.card-category:hover .card-icon{
+  color: white;
 }

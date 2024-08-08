@@ -24,10 +24,10 @@ function SetIcon(title){
 }
 
 
-function Category({title, filterCategory}) {
+function Category({title, filterCategory, activeCategory}) {
     return (
         <div 
-            className="card-category my-5 d-flex flex-column align-items-center justify-content-center" 
+            className={`card-category my-5 d-flex flex-column align-items-center justify-content-center ${activeCategory === title ? 'active' : ''}`}
             style={{ width: "18rem", cursor:"pointer"}}
             onClick={() => filterCategory(title)}
         >
@@ -39,19 +39,19 @@ function Category({title, filterCategory}) {
         </div>
     );
 }
-  
-function CategorySearch({filterCategory}){
+
+function CategorySearch({filterCategory, activeCategory}){
     return(
         <section>
             <h1 className='title-top'>PESQUISAR POR CATEGORIAS</h1>
             
             <div className="categories-container" style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-              <Category title="Plantas" filterCategory={filterCategory}/> 
-              <Category title="Vasos" filterCategory={filterCategory}/>
-              <Category title="Adubos" filterCategory={filterCategory}/>
-              <Category title="Sementes" filterCategory={filterCategory}/>
-              <Category title="Ferramentas" filterCategory={filterCategory}/>
-              <Category title="Terra" filterCategory={filterCategory}/>
+              <Category title="Plantas" filterCategory={filterCategory} activeCategory={activeCategory}/> 
+              <Category title="Vasos" filterCategory={filterCategory} activeCategory={activeCategory}/>
+              <Category title="Adubos" filterCategory={filterCategory} activeCategory={activeCategory}/>
+              <Category title="Sementes" filterCategory={filterCategory} activeCategory={activeCategory}/>
+              <Category title="Ferramentas" filterCategory={filterCategory} activeCategory={activeCategory}/>
+              <Category title="Terra" filterCategory={filterCategory} activeCategory={activeCategory}/>
             </div>
         </section>
     )
