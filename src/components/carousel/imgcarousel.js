@@ -21,10 +21,10 @@ function ImgCarousel({products}) {
                 }}
             >
 
-                <SwiperSlide style={{height:"720px"}}> <img className='object-fit-cover' src="/assets/img/i1.jpg" alt="planta"/> </SwiperSlide>
-                <SwiperSlide style={{height:"720px"}}><img className='object-fit-cover' src="/assets/img/i4.jpg" alt="planta"/></SwiperSlide>
-                <SwiperSlide style={{height:"720px"}}><img className='object-fit-cover h-100' src="/assets/img/i2.jpg" alt="planta"/></SwiperSlide>
-                <SwiperSlide style={{height:"720px"}}><img className='object-fit-cover h-100' src="/assets/img/i3.jpg" alt="planta"/></SwiperSlide>
+                <SwiperSlide style={{height:"680px"}}> <img className='object-fit-cover' src="/assets/img/i1.jpg" alt="planta"/> </SwiperSlide>
+                <SwiperSlide style={{height:"680px"}}><img className='object-fit-cover' src="/assets/img/i4.jpg" alt="planta"/></SwiperSlide>
+                <SwiperSlide style={{height:"680px"}}><img className='object-fit-cover h-100' src="/assets/img/i2.jpg" alt="planta"/></SwiperSlide>
+                <SwiperSlide style={{height:"680px"}}><img className='object-fit-cover h-100' src="/assets/img/i3.jpg" alt="planta"/></SwiperSlide>
             </Swiper>
 
         </div>
