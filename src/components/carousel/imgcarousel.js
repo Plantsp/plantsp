@@ -1,12 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
-import { useState } from 'react';
-import { Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
-function ImgCarousel({products}) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+function ImgCarousel() {
 
     return (
         <div>
@@ -15,7 +12,6 @@ function ImgCarousel({products}) {
                 modules={[Pagination, Autoplay]}
                 slidesPerView={1}
                 className="mySwiper"
-                onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
                 autoplay={{
                     delay: 5000,
                 }}

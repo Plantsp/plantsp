@@ -13,7 +13,7 @@ function Home() {
   const [activeCategory, setActiveCategory] = useState("");
 
   const filterCategory = (category) =>{
-    setProducts(listaProdutos.filter((produto) => produto.categoria == category));
+    setProducts(listaProdutos.filter((produto) => produto.categoria === category));
     setActiveCategory(category);
   }
 

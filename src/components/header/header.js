@@ -1,4 +1,3 @@
-import { Col,Row } from 'react-bootstrap';
 import './header.css';
 
 import { FaPercent, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
