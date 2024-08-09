@@ -10,7 +10,7 @@ import { Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import ProductCard from '../card/ProductCard';
 
-function Carousel({products}) {
+function ProdCarousel({products}) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
@@ -45,4 +45,4 @@ function Carousel({products}) {
     );
 }
   
-export default Carousel;
+export default ProdCarousel;

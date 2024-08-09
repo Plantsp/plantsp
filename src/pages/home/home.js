@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import Carousel from '../../components/carousel/carousel';
+import ProdCarousel from '../../components/carousel/prodcarousel';
 import CategorySearch from '../../components/category/category';
 import { listaProdutos } from '../../data/produtos';
 import ProductCard from '../../components/card/ProductCard';
+import ImgCarousel from '../../components/carousel/imgcarousel';
 
 function Home() {
   const [products, setProducts] = useState(listaProdutos);
@@ -20,6 +21,7 @@ function Home() {
     <div>
         <Header></Header>
 
+        <ImgCarousel/>
         <div className="container py-5">
           <CategorySearch filterCategory={filterCategory} activeCategory={activeCategory}/>
 
@@ -36,7 +38,7 @@ function Home() {
           </Row>
 
           <h1 className='title-top mb-5'>PESQUISAR POR CATEGORIAS</h1>
-          <Carousel products={listaProdutos}/>
+          <ProdCarousel products={listaProdutos}/>
         </div>
 
         <Footer></Footer>
