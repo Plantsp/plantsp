@@ -45,7 +45,7 @@ function CategorySearch({filterCategory, activeCategory}){
         <section>
             <h1 className='title-top'>PESQUISAR POR CATEGORIAS</h1>
             
-            <div className="categories-container" style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+            <div className="categories-container px-4" style={{ display: 'flex', justifyContent: 'center', gap: '20px'}}>
               <Category title="Plantas" filterCategory={filterCategory} activeCategory={activeCategory}/> 
               <Category title="Vasos" filterCategory={filterCategory} activeCategory={activeCategory}/>
               <Category title="Adubos" filterCategory={filterCategory} activeCategory={activeCategory}/>
