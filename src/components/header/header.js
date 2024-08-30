@@ -1,6 +1,6 @@
 import './header.css';
 
-import { FaPercent, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
+import { FaPercent, FaShoppingCart, FaUser, FaSearch, FaHeart } from 'react-icons/fa';
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
 
@@ -39,6 +39,7 @@ function Header() {
         <div className="icon-container align-self-center">
           <FaPercent className="icon" />
           <FaShoppingCart className="icon" />
+          <FaHeart className="icon" /> 
           <FaUser className="icon" />
         </div>
       </header>
