@@ -1,0 +1,19 @@
+.carousel-text {
+    position: absolute;
+    left: 100px; /* Ajuste a distância do texto à esquerda conforme necessário */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.10rem; /* Ajuste o tamanho da fonte conforme necessário */
+    color: white;
+    font-weight: bold;
+    text-align: left; /* Mantém o texto alinhado à esquerda */
+    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+}
+
+
+
+.carousel-text span {
+    color: #47b845; /* Cor verde para o 50% */
+    font-size: 5rem;
+    font-weight:700; /* Para destacar o texto */
+}
