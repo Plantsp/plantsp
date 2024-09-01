@@ -1,0 +1,91 @@
+.offer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .offer-text h1 {
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    font-weight: bold; /* Negrito */
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-size: 4.10rem;
+}
+
+.offer-text .especial {
+    color: #2F5B2E; /* Verde para "ESPECIAL" */
+}
+
+.offer-text p {
+    font-family: 'Istok Web', sans-serif; /* Fonte Istok Web */
+    font-weight: normal; /* Regular */
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.offer-text .especial-p {
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    font-weight: bold; /* Negrito */
+    font-size: 2em;
+    color: #2F5B2E; /* Verde para "Por R$ 90,00" */
+    margin-bottom: 30px;
+}
+  
+  .btn-ver-mais {
+    padding: 15px 30px;
+    background-color: #2F5B2E; /* Verde escuro */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-ver-mais:hover {
+    transform: scale(1.1);
+  }
+  
+  .offer-image-container {
+    width: 50%; /* Ajuste essa largura conforme necessário */
+    height: 50vh; /* Altura total da tela */
+    background-color: #2F5B2E; /* Fundo verde escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-top-left-radius: 20px; /* Lado esquerdo superior */
+    border-bottom-left-radius: 20px; /* Lado esquerdo inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Faz a div se posicionar no canto da tela */
+    right: 0; /* Alinha a div ao lado direito */
+}
+  
+  .offer-image {
+    width: 80%;
+    height: auto;
+    object-fit: cover; 
+  }
+  
+  .offer-text .price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre os preços */
+}
+
+.offer-text .price-container .price-original {
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    font-weight: bold; /* Negrito */
+    font-size: 1.5em;
+    text-decoration: line-through; /* Traço no valor original */
+    color: #555; /* Cor para o preço original */
+}
+
+.offer-text .price-container .price-discount {
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    font-weight: bold; /* Negrito */
+    font-size: 2em;
+    color: #80AF6F; /* Verde para "Por R$ 90,00" */
+}
