@@ -7,6 +7,7 @@ import CategorySearch from '../../components/category/category';
 import { listaProdutos } from '../../data/produtos';
 import ProductCard from '../../components/card/ProductCard';
 import ImgCarousel from '../../components/carousel/imgcarousel';
+import SpecialOffer from '../../components/SpecialOffer/specialoffer';
 
 function Home() {
   const [products, setProducts] = useState(listaProdutos);
@@ -37,7 +38,8 @@ function Home() {
           }
           </Row>
 
-          <h1 className='title-top mb-5'>PESQUISAR POR CATEGORIAS</h1>
+          {/* <h1 className='title-top mb-5'>PESQUISAR POR CATEGORIAS</h1> */}
+          <SpecialOffer/>
           <ProdCarousel products={listaProdutos}/>
         </div>
 
