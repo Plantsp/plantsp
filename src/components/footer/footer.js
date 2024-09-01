@@ -18,7 +18,7 @@ function Footer() {
             <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
               <FaTwitter className="social-icon" />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/plantsp_av/?igsh=MWQ1M3gyZ3JxZWF2NA%3D%3D" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="social-icon" />
             </a>
           </div>
