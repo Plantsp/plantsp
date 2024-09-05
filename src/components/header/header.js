@@ -40,7 +40,9 @@ function Header() {
           <FaPercent className="icon" />
           <FaShoppingCart className="icon" />
           <FaHeart className="icon" /> 
-          <FaUser className="icon" />
+          <a href={`/login`}> 
+            <FaUser className="icon" />
+          </a>
         </div>
       </header>
   );
