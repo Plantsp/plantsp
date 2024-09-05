@@ -10,7 +10,7 @@ function Header() {
 
   return (
       <header className="header">
-        <div className='align-self-center' onClick={() => Navigate("/")}>
+        <div className='align-self-center' onClick={() => Navigate("/")} style={{cursor:"pointer"}}>
             <img src={logo} alt='logo' className='imglogo' ></img>
         </div>
 
@@ -43,9 +43,9 @@ function Header() {
           <FaPercent className="icon" />
           <FaShoppingCart className="icon" />
           <FaHeart className="icon" /> 
-          <a onClick={() => Navigate("/login")}> 
+          <button className='btn-iconuser' onClick={() => Navigate("/login")}> 
             <FaUser className="icon" />
-          </a>
+          </button>
         </div>
       </header>
   );
