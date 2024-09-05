@@ -1,0 +1,128 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../../public/assets/img/teste.jpg'); /* Substitua pelo caminho da sua imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Largura máxima do card */
+  margin: 0 auto;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #114310;
+  text-align: center;
+}
+
+.login-form p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn-login, .btn-google, .btn-create-account {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login {
+  background-color: #2F5B2E; /* Verde escuro */
+  color: #fff;
+}
+
+.btn-login:hover {
+  background-color: #6b9b58; /* Cor verde um pouco mais escura */
+}
+
+.btn-google {
+  background-color: #fff; /* Fundo branco */
+  border: 1px solid #ccc; /* Borda cinza claro */
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-google .google-icon {
+  font-size: 20px;
+  color: #4285F4; /* Azul do Google */
+  margin-right: 8px;
+}
+
+.btn-google:hover {
+  border-color: #999; /* Borda mais escura ao passar o mouse */
+}
+
+.btn-create-account {
+  background-color: #ddd; /* Cinza claro */
+  color: #333;
+}
+
+.btn-create-account:hover {
+  background-color: #ccc; /* Cinza mais escuro */
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* Espaço para o ícone à esquerda */
+  font-size: 16px;
+  border: none; /* Remove a borda padrão do input */
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 20px;
+  color: #666;
+}
+
+
+/* Media query para telas menores que 550px */
+@media (max-width: 550px) {
+  .login-form h1{
+    font-size: 24px;
+  }
+
+  .login-form {
+      width: calc(100% - 30px); /* Ajusta a largura para deixar o espaço dos lados */
+  }
+}
