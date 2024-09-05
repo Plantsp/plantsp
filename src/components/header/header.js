@@ -1,14 +1,17 @@
 import './header.css';
+import { useNavigate } from 'react-router-dom';
 
 import { FaPercent, FaShoppingCart, FaUser, FaSearch, FaHeart } from 'react-icons/fa';
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
 
 function Header() {
+  const Navigate = useNavigate();
+
   return (
       <header className="header">
-        <div className='align-self-center'>
-            <img src={logo} alt='logo' className='imglogo'></img>
+        <div className='align-self-center' onClick={() => Navigate("/")}>
+            <img src={logo} alt='logo' className='imglogo' ></img>
         </div>
 
         {/* BARRA DE PESQUISA */}
@@ -40,7 +43,7 @@ function Header() {
           <FaPercent className="icon" />
           <FaShoppingCart className="icon" />
           <FaHeart className="icon" /> 
-          <a href={`/login`}> 
+          <a onClick={() => Navigate("/login")}> 
             <FaUser className="icon" />
           </a>
         </div>
