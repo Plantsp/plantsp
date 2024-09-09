@@ -1,5 +1,6 @@
 import Home from "../pages/home/home";
 import Login from "../pages/login/login";
+import Cadastrar from "../pages/cadastro/cadastrar";
 
 import { Route, Routes as RoutesDom } from "react-router-dom";
 
@@ -8,6 +9,7 @@ const Routes = () => {
       <RoutesDom>
         <Route path="/" index element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="cadastrar" element={<Cadastrar />} />
       </RoutesDom>
   )
 }

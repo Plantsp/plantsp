@@ -3,8 +3,10 @@ import { FaGoogle } from 'react-icons/fa'; // Importa o ícone do Google
 import './login.css'; 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+import { useNavigate } from 'react-router-dom'; // importantando useNavigate para trocar de tela
 
 function Login() {
+    const Navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   
@@ -48,7 +50,7 @@ function Login() {
                 <button type="button" className="btn-google">
                     <FaGoogle className="google-icon" /> Continuar com Google
                 </button>
-                <button type="button" className="btn-create-account">
+                <button type="button" className="btn-create-account" onClick={() => Navigate("/cadastrar")}>
                     Criar conta
                 </button>
 
