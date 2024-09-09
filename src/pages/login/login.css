@@ -24,6 +24,8 @@
   font-size: 36px;
   color: #114310;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 }
 
 .login-form p {
@@ -31,6 +33,7 @@
   font-size: 16px;
   color: #666;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .form-group {
@@ -41,6 +44,7 @@
   display: block;
   margin-bottom: 5px;
   color: #333;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .form-group input {
