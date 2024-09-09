@@ -32,7 +32,7 @@ function Header() {
               <li><a href="#meuspedidos">Meus pedidos</a></li>
               <li><a href="#atendimento">Atendimento</a></li>
               <li><a href="#sobrenos">Sobre nós</a></li>
-              <li><a href="#plantasnativas">Plantas nativasss</a></li>
+              <li><a href="#plantasnativas">Plantas nativas</a></li>
             </ul>
           </nav>
 
