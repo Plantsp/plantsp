@@ -2,8 +2,11 @@ import { useState } from 'react';
 import './cadastrar.css'; 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+import { useNavigate } from 'react-router-dom'; // importantando useNavigate para trocar de tela
+
 
 function Cadastrar() {
+  const Navigate = useNavigate();
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,6 +16,7 @@ function Cadastrar() {
       console.log('Nome:', nome);
       console.log('Email:', email);
       console.log('Senha:', password);
+      
     };
   
     return (
@@ -55,7 +59,7 @@ function Cadastrar() {
                 placeholder="Digite sua senha"
                 />
             </div>
-            <button type="submit" className="btn-cadastrar">Cadastrar</button>
+            <button type="submit" className="btn-cadastrar" onClick={() => Navigate("/perfil")}>Cadastrar</button>
             </form>
         </div>
         <Footer />
