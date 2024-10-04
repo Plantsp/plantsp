@@ -25,13 +25,13 @@ function ProdCarousel({products}) {
                 modules={[Navigation]}
                 spaceBetween={50}
                 slidesPerView={3}
-                className="mySwiper px-5"
+                className="prodSwiper px-5"
                 onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
             >
                 {
                     products.map((produto, index) => {
                         return (
-                            <SwiperSlide className="d-flex align-items-stretch">
+                            <SwiperSlide className="d-flex align-items-stretch text-left">
                                 <ProductCard produto={produto} key={index}/>
                             </SwiperSlide>
                         )
