@@ -105,3 +105,101 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Modal Background */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Content */
+.modal-content {
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Header */
+.modal-header {
+  padding-bottom: 10px;
+  text-align: center; 
+  justify-content: center; 
+  position: relative; 
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #114310; /* Verde solicitado */
+  font-family: 'Open Sans', sans-serif;
+  flex-grow: 1;
+  font-size: 36px;
+}
+
+/* Botão Fechar */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+
+.close:hover {
+  color: #ff5c5c;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #B7B7B7; 
+  text-align: center; 
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.modal-body p {
+  margin: 10px 0;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+/* Botões */
+.modal-footer .btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #114310;;
+  color: white;
+  border: none;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: #175e15;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+}
+
