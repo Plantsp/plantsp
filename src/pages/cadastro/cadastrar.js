@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './cadastrar.css'; 
-import Header from '../../components/header/header';
+import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import { useNavigate } from 'react-router-dom'; // importantando useNavigate para trocar de tela
 

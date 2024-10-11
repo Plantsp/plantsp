@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Header from '../../components/header/header';
+import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import ProdCarousel from '../../components/carousel/prodcarousel';
 import CategorySearch from '../../components/category/category';

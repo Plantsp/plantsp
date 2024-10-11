@@ -203,3 +203,125 @@
   }
 }
 
+@media (max-width: 768px) {
+.headerm {
+  background-color: var(--verde-escuro);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+/* Ícone de menu hambúrguer */
+.menu-icon .icon {
+  font-size: 30px;
+  background-color: #f5f5f5 transparent;
+  cursor: pointer;
+}
+
+/* Logo centralizado */
+.imglogo {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Ícone de usuário à direita */
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 30px;
+  color: var(--branco);
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btn-iconuser {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Barra de pesquisa */
+.search-bar-container {
+  width: 100%;
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  color: #999;
+  font-size: 18px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+/* Overlay do menu */
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%; /* Ajuste a largura conforme necessário */
+  height: 100%;
+  background-color: var(--verde-escuro);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 200;
+}
+
+.overlay-menu.open {
+  right: 0; /* Faz com que o menu apareça */
+}
+
+.navigation {
+  padding: 20px; /* Espaçamento do menu */
+}
+
+.nav-list {
+  list-style: none; /* Remove as bolinhas da lista */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  display: flex; /* Use flexbox para layout */
+  flex-direction: column; /* Alinha itens em coluna */
+  width: 100%; /* Garante que a lista ocupe toda a largura do menu */
+}
+
+.nav-list li {
+  margin-bottom: 15px; /* Espaçamento entre os itens */
+  width: 100%; /* Garante que cada item da lista ocupe toda a largura disponível */
+}
+
+.nav-list li a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #fff; /* Cor do texto */
+  font-size: 18px; /* Tamanho da fonte */
+  display: block; /* Faz com que o link ocupe toda a área do item da lista */
+  padding: 10px; /* Adiciona espaçamento interno aos links */
+  transition: background-color 0.3s; /* Efeito de transição */
+}
+
+.nav-list li a:hover {
+  background-color: #f0f0f0; /* Efeito de hover para melhorar a usabilidade */
+}
+}

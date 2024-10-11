@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactStars from "react-rating-stars-component";
 import { FaHeart } from 'react-icons/fa'; // Importando o icone de coração
 
+
 function ProductCard({produto}) {
   const [isFavorited, setIsFavorited] = useState(false); // Estado para controlar se o produto é favorito
   const img = process.env.PUBLIC_URL + produto.imagem;

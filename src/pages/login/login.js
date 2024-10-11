@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa'; // Importa o ícone do Google
 import './login.css'; 
-import Header from '../../components/header/header';
+import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import { useNavigate } from 'react-router-dom'; // importantando useNavigate para trocar de tela
 
