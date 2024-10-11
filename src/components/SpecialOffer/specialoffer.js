@@ -4,7 +4,7 @@ const plantalddireito = process.env.PUBLIC_URL + '/assets/img/plantalddireito.pn
 
 function SpecialOffer() {
   return (
-    <div className="offer-container">
+    <div className="offer-container d-none d-sm-none d-md-block">
       {/* Lado esquerdo com as informações */}
       <div className="offer-text">
         <h1>Oferta <br/><span className="especial">ESPECIAL</span></h1>
