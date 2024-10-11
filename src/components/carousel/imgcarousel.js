@@ -6,7 +6,7 @@ import './carousel.css';
 
 function ImgCarousel() {
     return (
-        <div>
+        <div className="d-none d-sm-none d-md-block">
             <Swiper 
                 pagination={{ clickable: true }}
                 modules={[Pagination, Autoplay]}
