@@ -1,0 +1,34 @@
+.sobre-container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+    /* Imagem */
+  .img-esquerda {
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho da coluna */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+  /* Texto */
+  .text-info-sobre {
+    color: var(--preto);
+    font-size: 18px;
+    line-height: 32px;
+    padding-left: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+  }
+  
+  /* Para ajustar o layout no mobile */
+  @media (max-width: 768px) {
+    .sobre-container{
+      padding: 17px;
+    }
+  
+    .text-info-sobre  {
+        text-align: center ;
+        font-size: 17px;
+        line-height: 30px;
+    }
+  }
+  
