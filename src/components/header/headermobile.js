@@ -47,10 +47,10 @@ function HeaderMobile() {
       <div className={`overlay-menu ${isMenuOpen ? 'open' : ''}`}>
         <nav className="navigation">
             <ul className="nav-list">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>Home</a></li>
                 <li><a href="#meuspedidos">Meus pedidos</a></li>
                 <li><a href="#atendimento"onClick={handleModalOpen}>Atendimento</a></li>
-                <li><a href="#sobrenos">Sobre nós</a></li>
+                <li><a href="#sobrenos" onClick={() => navigate("/sobrenos")} style={{ cursor: "pointer" }}>Sobre nós</a></li>
                 <li><a href="#promoçoes">Promoções</a></li>
             </ul>
         </nav>
