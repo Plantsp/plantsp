@@ -83,17 +83,18 @@
 }
 
 .nav-list a {
-  color: var(--branco);
-  text-decoration: none;
+  color: var(--branco) !important;
+  text-decoration: none !important;
   font-size: 18px;
   transition: color 0.3s;
   padding: 7px 15px;
   border-radius: 8px 8px 0 0; 
+  cursor: pointer;
 }
 
 .nav-list a:hover {
   background-color: #fff;
-  color:#666;
+  color:#666 !important;
 
 }
 
