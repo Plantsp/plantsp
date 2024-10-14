@@ -88,7 +88,7 @@
   font-size: 18px;
   transition: color 0.3s;
   padding: 7px 15px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0; 
 }
 
 .nav-list a:hover {
@@ -159,10 +159,10 @@
   padding: 20px;
   line-height: 1.6;
   font-size: 1rem;
-  color: #B7B7B7; 
+  color: var(--preto); 
   text-align: center; 
   font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
 }
 
