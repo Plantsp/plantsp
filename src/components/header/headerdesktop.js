@@ -1,6 +1,6 @@
 import './header.css';
 import HeaderMobile from './headermobile'; // Importar seu componente HeaderMobile
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaShoppingCart, FaUser, FaSearch, FaHeart } from 'react-icons/fa';
 
@@ -49,12 +49,12 @@ function Header() {
             {/* NAVEGAÇÃO DO HEADER */}
             <nav className="navigation">
               <ul className="nav-list">
-                <li><a  onClick={() => navigate("/")} >Home</a></li>
-                <li><a >Meus pedidos</a></li>
-                <li><a onClick={handleModalOpen}>Atendimento</a></li>
-                <li><a onClick={() => navigate("/sobrenos")}>Sobre nós</a></li>
-                <li><a >Promoções</a></li>
-                <li><a >FAQ</a></li>
+                <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
+                <li><Link to="">Meus pedidos</Link></li>
+                <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
+                <li><Link to="/sobrenos"onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
+                <li><Link to="">Promoções</Link></li>
+                <li><Link to="">FAQ</Link></li>
               </ul>
             </nav>
           </div>

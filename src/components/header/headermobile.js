@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaBars, FaSearch, FaUser } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
@@ -47,12 +47,12 @@ function HeaderMobile() {
       <div className={`overlay-menu ${isMenuOpen ? 'open' : ''}`}>
         <nav className="navigation">
             <ul className="nav-list">
-                <li><a onClick={() => navigate("/")} style={{ cursor: "pointer" }}>Home</a></li>
-                <li><a >Meus pedidos</a></li>
-                <li><a  onClick={handleModalOpen}>Atendimento</a></li>
-                <li><a  onClick={() => navigate("/sobrenos")} style={{ cursor: "pointer" }}>Sobre nós</a></li>
-                <li><a >Promoções</a></li>
-                <li><a >Faq</a></li>
+            <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
+                <li><Link to="">Meus pedidos</Link></li>
+                <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
+                <li><Link to="/sobrenos" onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
+                <li><Link to="" >Promoções</Link></li>
+                <li><Link to="">FAQ</Link></li>
             </ul>
         </nav>
     </div>

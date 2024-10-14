@@ -90,12 +90,12 @@
   padding: 7px 15px;
   border-radius: 8px 8px 0 0; 
   cursor: pointer;
+  line-height: unset;
 }
 
 .nav-list a:hover {
   background-color: #fff;
   color:#666 !important;
-
 }
 
 .btn-iconuser{
@@ -325,4 +325,7 @@
 .nav-list li a:hover {
   background-color: #f0f0f0; /* Efeito de hover para melhorar a usabilidade */
 }
+
 }
+
+
