@@ -1,0 +1,88 @@
+/* Estilo geral da página de favoritos */
+.favorites-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 0 10%; /* Adiciona padding de 10% nas laterais */
+}
+
+/* Container dos favoritos */
+.favorites-container {
+    display: flex; /* Alinha os cards em linha */
+    flex-wrap: wrap; /* Permite que os cards se movam para a linha seguinte, se necessário */
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    width: 100%; /* Largura total do container */
+    box-sizing: border-box; /* Inclui o padding no cálculo da largura total */
+}
+
+/* Card do produto */
+.favorite-card {
+    display: flex;
+    flex-direction: column; /* Alinha a imagem em cima e o texto embaixo */
+    width: 300px; /* Largura fixa para o card */
+    background-color: #fff; /* Cor de fundo do card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra do card */
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde partes que saem do card */
+    margin: 10px; /* Espaçamento entre os cards */
+}
+
+/* Imagem do produto */
+.favorite-card-image {
+    width: 100%; /* A imagem ocupa toda a largura do card */
+    height: 190px; /* Altura fixa da imagem */
+    object-fit: cover; /* Cobre o espaço do card sem distorcer */
+}
+
+/* Corpo do card */
+.favorite-card-body {
+    padding: 15px; /* Espaçamento interno do corpo do card */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Nome do produto */
+.favorite-card-title {
+    font-weight: bold; /* Negrito */
+    margin-bottom: 5px; /* Espaçamento abaixo do nome */
+    color: #333; /* Cor do texto */
+    font-size: 18px; /* Tamanho da fonte */
+}
+
+/* Preço do produto */
+.favorite-card-price {
+    font-size: 16px; /* Tamanho da fonte */
+    color: #80AF6F; /* Cor do preço */
+}
+
+/* Mensagem de ausência de favoritos */
+.no-favorites {
+    text-align: center; /* Centraliza a mensagem */
+    font-size: 18px; /* Tamanho da fonte */
+    color: #666; /* Cor do texto */
+}
+
+.favorite-card-header {
+    display: flex;
+    justify-content: space-between; /* Espaça o título e o ícone do coração */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Ícone do coração */
+.favorite-icon {
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 24px; /* Tamanho do ícone */
+}
+
+/* Alinhamento e espaçamento do card */
+.favorite-card-body {
+    padding: 15px; /* Espaçamento interno do corpo do card */
+    text-align: left; /* Alinha o texto à esquerda */
+    display: flex;
+    flex-direction: column; /* Alinha o texto em coluna */
+}
+
+.favorites-count {
+    font-size: 18px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    margin-bottom: 20px; /* Espaçamento abaixo da contagem */
+}
