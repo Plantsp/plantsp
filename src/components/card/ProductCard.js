@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactStars from "react-rating-stars-component";
 import { FaHeart } from 'react-icons/fa';
+import {useNavigate } from 'react-router-dom';
 
 function ProductCard({ produto }) {
+  const navigate = useNavigate(); // Hook para navegação
   const [isFavorited, setIsFavorited] = useState(false);
   const img = process.env.PUBLIC_URL + produto.imagem;
 
@@ -29,7 +31,8 @@ function ProductCard({ produto }) {
   }, [produto.id]);
 
   return (
-    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() => console.log("produto clicado: ", produto)}>
+    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  {console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
+  }}> 
         <img src={img} alt='planta' className="card-img-top object-fit-cover" height={240} />
 
         {/* Botão do ícone de coração */}
