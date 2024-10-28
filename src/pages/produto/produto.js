@@ -10,13 +10,13 @@ import Footer from '../../components/footer/footer';
     
             <section className="prod_escolhido">
                <div className="imgs_prod">
-                    <img src="~/assets/img/planta.png"></img>
+                    <img src="~/assets/img/planta.png" alt="aaa"></img>
     
                     <div className="imgs_esc">
-                        <img src="~/assets/img/planta.png" className="img_opc"></img>
-                        <img src="~/assets/img/planta.png" className="img_opc"></img>
-                        <img src="~/assets/img/planta.png" className="img_opc"></img>
-                        <img src="~/assets/img/planta.png" className="img_opc"></img>
+                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
+                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
+                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
+                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
                     </div>
                </div>
     
