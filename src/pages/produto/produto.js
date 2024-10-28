@@ -4,7 +4,6 @@ import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import {useNavigate } from 'react-router-dom';
 
-
   function prodPage (){
     return (
         <div>
