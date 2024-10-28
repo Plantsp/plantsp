@@ -3,7 +3,7 @@ import "./produto.css";
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 
-  function prodPage (){
+  function Produto (){
     return (
         <div>
         <Header></Header>
@@ -53,5 +53,4 @@ import Footer from '../../components/footer/footer';
       );
   }
 
-    export default prodPage ;
-  prodPage();
+export default Produto;
