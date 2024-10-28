@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactStars from "react-rating-stars-component";
+import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 
 function ProductCard({ produto }) {
+  const navigate = useNavigate(); // Hook para navegação
   const [isFavorited, setIsFavorited] = useState(false);
   const img = process.env.PUBLIC_URL + produto.imagem;
 
@@ -28,8 +30,15 @@ function ProductCard({ produto }) {
     setIsFavorited(favorites.some(fav => fav.id === produto.id));
   }, [produto.id]);
 
+/*
+  function openPage(){
+    const url = 'http://localhost:3000/produto'; //url da tela de produto
+    window.open(url, '_blank');
+    console.log("produto clicado: ", produto);
+  }*/
+
   return (
-    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() => console.log("produto clicado: ", produto)}>
+    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() => navigate("/produto")}>
         <img src={img} alt='planta' className="card-img-top object-fit-cover" height={240} />
 
         {/* Botão do ícone de coração */}
