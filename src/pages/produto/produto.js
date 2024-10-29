@@ -10,27 +10,28 @@ import Footer from '../../components/footer/footer';
     
             <section className="prod_escolhido">
                <div className="imgs_prod">
-                    <img src="~/assets/img/planta.png" alt="aaa"></img>
+                    <img src="../../assets/img/planta.png" alt="." className="img_inicial"></img>
     
                     <div className="imgs_esc">
-                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
-                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
-                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
-                        <img src="~/assets/img/planta.png" alt="aaa" className="img_opc"></img>
+                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
+                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
+                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
+                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
                     </div>
                </div>
     
                <div className="info_prod">
                     <h2>Nome produto</h2>
-                    <p>R$ 150,00</p>
-                    <p>R$ 119,90</p>
-                    <p>Estoque: 23 disponiveis</p>
+                    <p className="descricao">Este é um dos melhores produtos que temos em nossa loja, sua beleza é inegualável.</p>
+                    <p className="preco">R$ 150,00</p>
+                    <p className="desc">R$ 119,90</p>
+                    <p className="estoque">Estoque: 23 disponiveis</p>
     
                     <h3>Quantidade:</h3>
                     <div className="div_btn_quant">
-                        <button>+</button>
-                        <p>12</p>
-                        <button>-</button>
+                        <button className="aumentar">+</button>
+                        <p className="quant">12</p>
+                        <button className="diminuir">-</button>
                     </div>
     
                     <button className="btn_compra">COMPRAR</button>

@@ -30,13 +30,6 @@ function ProductCard({ produto }) {
     setIsFavorited(favorites.some(fav => fav.id === produto.id));
   }, [produto.id]);
 
-/*
-  function openPage(){
-    const url = 'http://localhost:3000/produto'; //url da tela de produto
-    window.open(url, '_blank');
-    console.log("produto clicado: ", produto);
-  }*/
-
   return (
     <div className="card w-100" style={{ cursor: "pointer" }} onClick={() => navigate("/produto")}>
         <img src={img} alt='planta' className="card-img-top object-fit-cover" height={240} />

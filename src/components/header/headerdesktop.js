@@ -31,6 +31,7 @@ function Header() {
         <HeaderMobile />
       ) : (
         <header className="header">
+          
           <div className='align-self-center' onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
             <img src={logo} alt='logo' className='imglogo' />
           </div>
