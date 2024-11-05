@@ -12,10 +12,11 @@
 }
 
 .img_inicial{
-
     width: 21vw;
     margin: 0 0 0 7vw;
     border-radius: 1vw;
+    height: 74%;
+    object-fit: cover;
 }
 
 .imgs_esc{

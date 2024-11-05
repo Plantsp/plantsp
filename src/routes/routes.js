@@ -5,7 +5,7 @@ import Perfil from "../pages/profile/profile";
 import Sobre from "../pages/sobrenos/sobrenos";
 import Produto from "../pages/produto/produto";
 import Favoritos from "../pages/favorites/pagefavorites";
-import Faq from "../pages/faq/faq";
+import Faq from "../pages/FAQ/faq";
 
 import { Route, Routes as RoutesDom } from "react-router-dom";
 
@@ -17,9 +17,9 @@ const Routes = () => {
         <Route path="cadastrar" element={<Cadastrar />} />
         <Route path="perfil" element={<Perfil/>} />
         <Route path="sobrenos" element={<Sobre/>} />
-        <Route path="produto" element={<Produto/>} />
         <Route path="favoritos" element={<Favoritos/>} />
         <Route path="faq" element={<Faq/>} />  
+        <Route path="produto/:id" element={<Produto/>} />
       </RoutesDom>
   )
 }

@@ -31,7 +31,8 @@ function ProductCard({ produto }) {
   }, [produto.id]);
 
   return (
-    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() => navigate("/produto")}>
+    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  {console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
+  }}> 
         <img src={img} alt='planta' className="card-img-top object-fit-cover" height={240} />
 
         {/* Botão do ícone de coração */}
