@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactStars from "react-rating-stars-component";
+import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import {useNavigate } from 'react-router-dom';
 

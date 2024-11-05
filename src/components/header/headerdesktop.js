@@ -31,6 +31,7 @@ function Header() {
         <HeaderMobile />
       ) : (
         <header className="header">
+          
           <div className='align-self-center' onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
             <img src={logo} alt='logo' className='imglogo' />
           </div>
@@ -47,14 +48,14 @@ function Header() {
             </div>
 
             {/* NAVEGAÇÃO DO HEADER */}
-            <nav className="navigation">
+            <nav className="navigation pt-1">
               <ul className="nav-list">
                 <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
                 <li><Link to="">Meus pedidos</Link></li>
                 <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
                 <li><Link to="/sobrenos"onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
                 <li><Link to="">Promoções</Link></li>
-                <li><Link to="">FAQ</Link></li>
+                <li><Link to="/faq"onClick={() => navigate("/faq")}>FAQ</Link></li>
               </ul>
             </nav>
           </div>
