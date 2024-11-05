@@ -1,16 +1,31 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./produto.css"; 
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
+import { useParams } from "react-router-dom";
+import { listaProdutos } from "../../data/produtos";
 
   function Produto (){
+    const {id} = useParams();
+
+   const [produtoInfo, setProdutoInfo] = useState({});
+   
+    useEffect(() => {
+        findProd(id);
+    },[id]);
+
+    function findProd(value) {
+       let prod = listaProdutos.find((produto) => produto.id === value);
+       setProdutoInfo(prod);
+    }
+
     return (
         <div>
         <Header></Header>
     
             <section className="prod_escolhido">
                <div className="imgs_prod">
-                    <img src="../../assets/img/planta.png" alt="." className="img_inicial"></img>
+                <img src={produtoInfo.imagem} alt="." className="img_inicial" />
     
                     <div className="imgs_esc">
                         <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
@@ -21,11 +36,12 @@ import Footer from '../../components/footer/footer';
                </div>
     
                <div className="info_prod">
-                    <h2>Nome produto</h2>
-                    <p className="descricao">Este é um dos melhores produtos que temos em nossa loja, sua beleza é inegualável.</p>
-                    <p className="preco">R$ 150,00</p>
-                    <p className="desc">R$ 119,90</p>
-                    <p className="estoque">Estoque: 23 disponiveis</p>
+                    <h2>{produtoInfo.nome}</h2>
+                    <p className="descricao">{produtoInfo.descricao}</p>
+                    <p className="preco">R$ {Number(produtoInfo.preco).toFixed(2).replace(".", ",")}</p>
+                    <p className="desc">R$ {(produtoInfo.preco * (1 - produtoInfo.desconto)).toFixed(2).replace(".", ",")}</p>
+                    {/* <p className="desc">Desconto: {produtoInfo.desconto * 100}%</p> */}
+                    {/* <p className="estoque">Estoque: 23 disponiveis</p> */}
     
                     <h3>Quantidade:</h3>
                     <div className="div_btn_quant">
@@ -35,7 +51,7 @@ import Footer from '../../components/footer/footer';
                     </div>
     
                     <button className="btn_compra">COMPRAR</button>
-                    <button className="btn_add">ADD</button>
+                    {/* <button className="btn_add">ADD</button> */}
                </div>
             </section>
     
