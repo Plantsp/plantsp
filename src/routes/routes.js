@@ -5,6 +5,7 @@ import Perfil from "../pages/profile/profile";
 import Sobre from "../pages/sobrenos/sobrenos";
 import Produto from "../pages/produto/produto";
 import Favoritos from "../pages/favorites/pagefavorites";
+import Faq from "../pages/faq/faq";
 
 import { Route, Routes as RoutesDom } from "react-router-dom";
 
@@ -18,7 +19,7 @@ const Routes = () => {
         <Route path="sobrenos" element={<Sobre/>} />
         <Route path="produto" element={<Produto/>} />
         <Route path="favoritos" element={<Favoritos/>} />
-        
+        <Route path="faq" element={<Faq/>} />  
       </RoutesDom>
   )
 }
