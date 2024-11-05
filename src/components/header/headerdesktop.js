@@ -48,7 +48,7 @@ function Header() {
             </div>
 
             {/* NAVEGAÇÃO DO HEADER */}
-            <nav className="navigation">
+            <nav className="navigation pt-1">
               <ul className="nav-list">
                 <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
                 <li><Link to="">Meus pedidos</Link></li>
