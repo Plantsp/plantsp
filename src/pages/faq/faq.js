@@ -1,11 +1,35 @@
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
+import "./faq.css";
 
 function Faq() {
     return (
         <div>
             <Header></Header>
-                <p>Cadastre-se para criar uma conta e explorar muitas coisas</p>
+                <div id="G">
+                    <div id="pergunta">
+                        <h2 id="cliente_pergunta">Faça sua pergunta e tire sua dúvida</h2>
+                        <input type="text" placeholder="Digite aqui..." id="arera_pergunta"></input>
+                        <div id="btns">
+                            <button class="perbtn" id="deletar">Deletar</button>
+                            <button class="perbtn" id="enviar">Enviar</button>
+                        </div>
+                    </div>
+
+                    <div id="pergunta_rep">
+
+                        <div class="caixa_pr"></div>
+
+                         <div class="caixa_pr"></div>
+                        
+                        <div class="caixa_pr"></div>
+
+                         <div class="caixa_pr"></div>
+                    </div>  
+                    
+                </div>
+
+                
             <Footer></Footer>
       </div>
     );
