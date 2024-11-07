@@ -16,9 +16,19 @@ function Faq() {
                         </div>
                     </div>
 
+                    <label>Perguntas Frequêntes</label>
+
                     <div id="pergunta_rep">
 
-                        <div class="caixa_pr"></div>
+                        <div class="caixa_pr">
+                            <h2 id="perguntaT">Pergunta:</h2>
+                            <p id="caixa_da_pergunta">Vocês vendem pão também?</p>
+
+                            <div id="sep">
+                                <h2 id="RespostT">Resposta:</h2>
+                                <p id="caixa_de_resposta">Claro que não krl kskskskks</p>
+                            </div>
+                        </div>
 
                          <div class="caixa_pr"></div>
                         
