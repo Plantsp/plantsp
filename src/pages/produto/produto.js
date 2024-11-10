@@ -26,13 +26,6 @@ import { listaProdutos } from "../../data/produtos";
             <section className="prod_escolhido">
                <div className="imgs_prod">
                 <img src={produtoInfo.imagem} alt="." className="img_inicial" />
-    
-                    <div className="imgs_esc">
-                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
-                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
-                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
-                        <img src="../../assets/img/planta.png" alt="." className="img_opc"></img>
-                    </div>
                </div>
     
                <div className="info_prod">

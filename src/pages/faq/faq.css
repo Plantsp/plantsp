@@ -1,5 +1,5 @@
 #G{
-    height: 60vw;
+    height: 65vw;
     padding-top: 6vw;
     justify-content: center;
     display: flex;
@@ -7,9 +7,12 @@
 
 
 #pergunta{
-    width: 37vw;
-    height: 7vw;
+    padding: 2vw 0 0 3.5vw;
+    width: 42vw;
+    height: 12vw;
     display: flex;
+    background-color: #212c2350;
+    border-radius: 0.8vw;
 }
 
 #cliente_pergunta{
@@ -66,12 +69,12 @@
 
 label{
     position: absolute;
-    margin:  11vw 35vw 0 0;
+    margin:  15vw 35vw 0 0;
     font: bold 1.2vw Verdana
 }
 
 #pergunta_rep{
-    margin-top: 14vw;
+    margin-top: 19vw;
     position: absolute;
     height:40vw;
     overflow: hidden;
@@ -88,33 +91,34 @@ label{
     border-color: #2f5b2e7a;
 }
 
-#perguntaT{
+.perguntaT{
     font: bold 1.3vw Arial;
     position: absolute;
-    margin: 1.4vw 0 0 2vw;
+    margin: 1.1vw 0 0 2vw;
 }
 
-#caixa_da_pergunta{
+.caixa_da_pergunta{
     font: bold 0.8vw Arial;
     position: absolute;
-    margin: 3.4vw 0 0 2vw;
+    margin: 3vw 0 0 2vw;
     color: #4e4e4e;
 }
 
-#RespostT{
+.RespostT{
     font: bold 1.3vw Arial;
     position: absolute;
-    margin: 5.1vw 0 0 2vw;
+    margin: 0.5vw 0 0 2vw;
 }
 
-#caixa_de_resposta{
+.caixa_de_resposta{
     font: bold 0.8vw Arial;
     position: absolute;
-    margin: 7vw 0 0 2vw;
+    margin: 2.4vw 0 0 2vw;
     color: #4e4e4e;
 }
 
-#sep{   
-border-top: 1vw;
-border-color: #4BBA76;
+.sep{   
+    margin-top: 4.3vw;
+    height: 4vw;
+    border-top: 0.3vw solid #2f5b2e2d;
 }
