@@ -55,6 +55,7 @@ h2{
     font: bold 17pt Verdana;  
     color: rgb(165, 50, 50);
     margin-bottom: 0;
+    text-decoration: line-through;
 }
 
 .desc{
