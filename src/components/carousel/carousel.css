@@ -1,6 +1,6 @@
 .carousel-text {
     position: absolute;
-    left: 100px; /* Ajuste a distância do texto à esquerda conforme necessário */
+    left: 10%; /* Ajuste a distância do texto à esquerda conforme necessário */
     top: 50%;
     transform: translateY(-50%);
     font-size: 4.10rem; /* Ajuste o tamanho da fonte conforme necessário */
