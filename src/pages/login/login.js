@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaGoogle } from 'react-icons/fa'; // Importa o ícone do Google
+// import { FaGoogle } from 'react-icons/fa'; // Importa o ícone do Google
 import './login.css'; 
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
@@ -47,9 +47,9 @@ function Login() {
                     />
                 </div>
                 <button type="submit" className="btn-login">Entrar</button>
-                <button type="button" className="btn-google">
+                {/* <button type="button" className="btn-google">
                     <FaGoogle className="google-icon" /> Continuar com Google
-                </button>
+                </button> */}
                 <button type="button" className="btn-create-account" onClick={() => Navigate("/cadastrar")}>
                     Criar conta
                 </button>
