@@ -18,7 +18,7 @@ function Faq() {
                         </div>
                     </div>
 
-                    <label>Perguntas Frequêntes</label>
+                    <label className='faq_label'>Perguntas Frequêntes</label>
 
                     <div id="pergunta_rep">
 

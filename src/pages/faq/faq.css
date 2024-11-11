@@ -67,7 +67,7 @@
     transition: 0.5s;
 }
 
-label{
+.faq_label{
     position: absolute;
     margin:  15vw 35vw 0 0;
     font: bold 1.2vw Verdana
