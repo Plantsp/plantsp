@@ -20,6 +20,17 @@ function Produto() {
     setProdutoInfo(prod);
   }
 
+  // Função para adicionar o produto ao carrinho (localStorage)
+  const addToCart = () => {
+    let cart = JSON.parse(localStorage.getItem('carrinho')) || [];
+    // Verificar se o produto já foi adicionado ao carrinho
+    const produtoNoCarrinho = cart.find(produto => produto.id === produtoInfo.id);
+    if (!produtoNoCarrinho) {
+      cart.push(produtoInfo);
+      localStorage.setItem('carrinho', JSON.stringify(cart));
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -39,7 +50,6 @@ function Produto() {
               <p className="descricao">{produtoInfo.descricao}</p>
               <p className="preco">Preço: R$ {Number(produtoInfo.preco).toFixed(2).replace(".", ",")}</p>
               <p className="desc">Com Desconto: R$ {(produtoInfo.preco * (1 - produtoInfo.desconto)).toFixed(2).replace(".", ",")}</p>
-              {/* <p className="desc">Desconto: {produtoInfo.desconto * 100}%</p> */}
 
               <h3>Quantidade:</h3>
               <div className="div_btn_quant d-flex align-items-center">
@@ -47,7 +57,7 @@ function Produto() {
                 <p className="quant mx-3 m-1">12</p>
                 <button className="diminuir">-</button>
               </div>
-              <button className="btn_compra mt-3">COMPRAR</button>
+              <button className="btn_compra mt-3" onClick={addToCart}>Adicionar ao carrinho</button>
             </Col>
           </Row>
         </section>
