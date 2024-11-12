@@ -54,6 +54,19 @@ const Carrinho = () => {
         </div>
       </div>
 
+       {/* Card de Compra Total */}
+      <div className="card mx-auto p-4 mb-5 text-center total-compra" style={{ width: '50%' }}>
+        <h5 className="text-green">Compra total</h5>
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h5 className="text-green">Total:</h5>
+          <p className="text-green h5 mb-0">R$ 152,97</p>
+        </div>
+        <div className="d-flex flex-column align-items-center">
+          <button className="btn btn-primary mb-2 button-fixed-width">Finalizar Compra</button>
+          <button className="btn btn-secondary button-fixed-width">Voltar a Comprar</button>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

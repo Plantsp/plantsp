@@ -16,3 +16,22 @@
     border-radius: 8px; /* Borda arredondada para estética */
     background-color: aquamarine;
   }
+
+  .total-compra h5, .total-compra p {
+    margin: 0;
+  }
+  
+  .btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    width: 20%;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    border-color: #ccc;
+  }
+  .button-fixed-width {
+    width: 200px; /* Define uma largura fixa para os botões */
+  }
+  
