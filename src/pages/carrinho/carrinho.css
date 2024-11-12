@@ -1,0 +1,18 @@
+.text-green {
+    color: #114310; /* Verde */
+  }
+  
+  .cart-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o conteúdo do card */
+  }
+
+  .product-image {
+    width: 80px; /* Tamanho fixo */
+    height: 80px;
+    object-fit: cover; /* Corta a imagem para caber na área */
+    border-radius: 8px; /* Borda arredondada para estética */
+    background-color: aquamarine;
+  }
