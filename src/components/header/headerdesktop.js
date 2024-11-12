@@ -54,7 +54,7 @@ function Header() {
                 <li><Link to="">Meus pedidos</Link></li>
                 <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
                 <li><Link to="/sobrenos"onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
-                <li><Link to="">Promoções</Link></li>
+                <li><Link to="/promocoes"onClick={() => navigate("/promocoes")}>Promoções</Link></li>
                 <li><Link to="/faq"onClick={() => navigate("/faq")}>FAQ</Link></li>
               </ul>
             </nav>
