@@ -62,7 +62,7 @@ function Header() {
 
           {/* ICONES */}
           <div className="icon-container align-self-center">
-            <FaShoppingCart className="icon" />
+            <FaShoppingCart className="icon" onClick={() => navigate("/carrinho")} />
             <FaHeart className="icon" onClick={() => navigate("/favoritos")}/>
             <button className='btn-iconuser' onClick={() => navigate("/login")}>
               <FaUser className="icon" />
