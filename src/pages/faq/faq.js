@@ -28,7 +28,7 @@ function Faq() {
     return (
         <div>
             <Header />
-            <h2 className="title-top pt-3">Perguntas Frequentes</h2>
+            <h2 className="title-top pt-4">Perguntas Frequentes</h2>
             <div className="faq-container">
                 {perguntasRespostas.map((item, index) => (
                     <div key={index} className="faq-card" onClick={() => toggleResposta(index)}>
