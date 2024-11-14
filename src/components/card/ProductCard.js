@@ -32,7 +32,7 @@ function ProductCard({ produto }) {
   }, [produto.id]);
 
   return (
-    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  {console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
+    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  { window.scrollTo(0, 0);console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
     
   }}> 
 
