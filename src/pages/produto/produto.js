@@ -10,6 +10,8 @@ import "./produto.css";
 function Produto() {
   const { id } = useParams();
   const [produtoInfo, setProdutoInfo] = useState({});
+  const [produtoAdicionado, setProdutoAdicionado] = useState(false); // Estado para controle da mensagem
+
 
   useEffect(() => {
     findProd(id);
@@ -28,6 +30,8 @@ function Produto() {
     if (!produtoNoCarrinho) {
       cart.push(produtoInfo);
       localStorage.setItem('carrinho', JSON.stringify(cart));
+      setProdutoAdicionado(true); // Mostra a mensagem de sucesso
+      setTimeout(() => setProdutoAdicionado(false), 3000); // Esconde a mensagem após 3 segundos
     }
   };
 
@@ -58,6 +62,9 @@ function Produto() {
                 <button className="diminuir">-</button>
               </div>
               <button className="btn_compra mt-3" onClick={addToCart}>Adicionar ao carrinho</button>
+
+              {/* Mensagem de sucesso */}
+              {produtoAdicionado && <div className="alert alert-success mt-3">Produto adicionado ao carrinho!</div>}
             </Col>
           </Row>
         </section>
