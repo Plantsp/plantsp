@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../../styles/global.css';
 import Header from '../../components/header/headerdesktop';
@@ -6,6 +7,7 @@ import Footer from '../../components/footer/footer';
 import './carrinho.css';
 
 const Carrinho = () => {
+    const navigate = useNavigate();
   const [carrinho, setCarrinho] = useState([]);
   const [totalCompra, setTotalCompra] = useState(0);
 
@@ -47,14 +49,18 @@ const Carrinho = () => {
             <div className="col-md-3">
               <h5 className="text-green">Produto</h5>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-2">
               <h5 className="text-green">Preço</h5>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-2">
               <h5 className="text-green">Quantidade</h5>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-2">
               <h5 className="text-green">Subtotal</h5>
+            </div>
+
+            <div className="col-md-3">
+              <h5 className="text-green">Ação</h5>
             </div>
           </div>
         </div>
@@ -67,13 +73,13 @@ const Carrinho = () => {
                 <img src={produto.imagem} alt={produto.nome} className="product-image mb-2" />
                 <p className="text-green">{produto.nome}</p>
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <p className="text-green">R$ {Number(produto.preco * (1 - produto.desconto)).toFixed(2).replace('.', ',')}</p>
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <p className="text-green">1</p> {/* dps faço a lógica para adicionar a quantidade, trabalhei demais :)))))*/}
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <p className="text-green">R$ {(produto.preco * (1 - produto.desconto)).toFixed(2).replace('.', ',')}</p>
               </div>
               <div className="col-md-3">
@@ -97,8 +103,8 @@ const Carrinho = () => {
           <p className="text-green h5 mb-0">R$ {totalCompra.toFixed(2).replace('.', ',')}</p>
         </div>
         <div className="d-flex flex-column align-items-center">
-          <button className="btn btn-primary mb-2 button-fixed-width">Finalizar Compra</button>
-          <button className="btn btn-secondary button-fixed-width">Voltar a Comprar</button>
+          <button className="btn btn-comprar mb-2 button-fixed-width">Finalizar Compra</button>
+          <button className="btn btn-voltarcomp button-fixed-width" onClick={() =>{ window.scrollTo(0, 0);navigate("/promocoes")}} >Voltar a Comprar</button>
         </div>
       </div>
 

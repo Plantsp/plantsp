@@ -21,15 +21,28 @@
     margin: 0;
   }
   
-  .btn-primary {
-    background-color: #4CAF50;
-    border-color: #4CAF50;
+  .btn-comprar {
+    background-color: #114310;
+    color: #fff;
     width: 20%;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .btn-comprar:hover{
+    background-color: #29792f;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
   }
   
-  .btn-secondary {
-    background-color: #ccc;
-    border-color: #ccc;
+  .btn-voltarcomp {
+    background-color: #DDDDDD;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .btn-voltarcomp:hover {
+    background-color: #aca7a7;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
   }
   .button-fixed-width {
     width: 200px; /* Define uma largura fixa para os botões */
