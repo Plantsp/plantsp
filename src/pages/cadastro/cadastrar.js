@@ -3,6 +3,7 @@ import './cadastrar.css';
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import { useNavigate } from 'react-router-dom'; // importantando useNavigate para trocar de tela
+import api from '../../services/api';
 
 
 function Cadastrar() {
@@ -10,6 +11,28 @@ function Cadastrar() {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    async function cadastrarUsuario(e) {
+      e.preventDefault();
+      try {
+        let body = {
+          nome: nome,
+          email: email,
+          senha: password
+        }
+  
+        const resposta = await api.post('usuario/cadastrar', body);
+        console.log(resposta.data);
+        localStorage.setItem('usuario', resposta.data);
+
+        // Redireciona para a página de perfil
+        Navigate('/perfil');
+  
+        return resposta.data;
+      } catch (erro) {
+        console.log('Erro ao fazer cadastro:', erro.response ? erro.response.data : erro.message);
+      }
+    }
   
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -59,7 +82,7 @@ function Cadastrar() {
                 placeholder="Digite sua senha"
                 />
             </div>
-            <button type="submit" className="btn-cadastrar" onClick={() => Navigate("/perfil")}>Cadastrar</button>
+            <button type="submit" className="btn-cadastrar"  onClick={(e) => { window.scrollTo(0, 0); cadastrarUsuario(e);}}>Cadastrar</button>
             </form>
         </div>
         <Footer />
