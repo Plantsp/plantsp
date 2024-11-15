@@ -4,24 +4,36 @@ import './login.css';
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import { useNavigate } from 'react-router-dom'; // importantando useNavigate para trocar de tela
+import api from '../../services/api';
 
 function Login() {
-    const Navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Lógica para processar o login
-      console.log('Email:', email);
-      console.log('Senha:', password);
-    };
+  const Navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function loginUsuario(email, senha, e) {
+    e.preventDefault();
+    try {
+      let body = {
+        email: email,
+        senha: senha
+      }
+
+      const resposta = await api.post('usuario/login', body);
+      console.log(resposta.data);
+      localStorage.setItem('usuario', resposta.data);
+
+      return resposta.data;
+    } catch (erro) {
+      console.log('Erro ao fazer login:', erro.response ? erro.response.data : erro.message);
+    }
+  }
   
     return (
         <div>
             <Header></Header>
             <div className="login-container">
-                <form onSubmit={handleSubmit} className="login-form">
+                <form className="login-form">
                 <h1>SEJA BEM VINDO</h1>
                 <p>Cadastre-se para criar uma conta e explorar muitas coisas</p>
                 <div className="form-group">
@@ -46,7 +58,7 @@ function Login() {
                     placeholder="Digite sua senha"
                     />
                 </div>
-                <button type="submit" className="btn-login">Entrar</button>
+                <button type="submit" className="btn-login" onClick={(e)=> loginUsuario(email, password, e)}>Entrar</button>
                 {/* <button type="button" className="btn-google">
                     <FaGoogle className="google-icon" /> Continuar com Google
                 </button> */}
