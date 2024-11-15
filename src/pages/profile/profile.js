@@ -19,6 +19,18 @@ function Profile() {
     birthDate: '',
   });
 
+  // Preenche o email do localStorage
+  useEffect(() => {
+    const usuario = localStorage.getItem('usuario');
+    if (usuario) {
+      const usuarioDados = JSON.parse(usuario);
+      setFormData((prevData) => ({
+        ...prevData,
+        email: usuarioDados.email || '',
+      }));
+    }
+  }, []);
+
   const [profileImage, setProfileImage] = useState(null); // Imagem de perfil
   const [bannerImage, setBannerImage] = useState(null); // Imagem do banner
 
