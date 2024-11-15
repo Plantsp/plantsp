@@ -23,6 +23,9 @@ function Login() {
       console.log(resposta.data);
       localStorage.setItem('usuario', resposta.data);
 
+      // Redireciona para a página de perfil
+      Navigate('/perfil');
+
       return resposta.data;
     } catch (erro) {
       console.log('Erro ao fazer login:', erro.response ? erro.response.data : erro.message);
@@ -58,7 +61,7 @@ function Login() {
                     placeholder="Digite sua senha"
                     />
                 </div>
-                <button type="submit" className="btn-login" onClick={(e)=> loginUsuario(email, password, e)}>Entrar</button>
+                <button type="submit" className="btn-login" onClick={(e)=> { window.scrollTo(0, 0);loginUsuario(email, password, e)}}>Entrar</button>
                 {/* <button type="button" className="btn-google">
                     <FaGoogle className="google-icon" /> Continuar com Google
                 </button> */}
