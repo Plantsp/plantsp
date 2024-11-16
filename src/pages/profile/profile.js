@@ -7,7 +7,7 @@ function Profile() {
   const navigate = useNavigate(); // Hook para navegação
   const [formData, setFormData] = useState({
     profileName: '',
-    username: '',
+    // username: '',
     email: '',
     phone: '',
     cpf: '',
@@ -29,13 +29,13 @@ function Profile() {
       setFormData((prevData) => ({
         ...prevData,
         email: usuarioDados.email || '',
+        profileName: usuarioDados.profileName || '',
       }));
     }
   }, []);
 
   const Sair = () => {
     localStorage.removeItem('usuario'); // Remove o item do localStorage
-   
     navigate('/'); // Redireciona para a página inicial
     window.scrollTo(0, 0);
   };

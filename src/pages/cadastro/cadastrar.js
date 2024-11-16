@@ -23,8 +23,8 @@ function Cadastrar() {
   
         const resposta = await api.post('usuario/cadastrar', body);
         console.log(resposta.data);
-        localStorage.setItem('usuario', resposta.data);
-
+        localStorage.setItem('usuario', JSON.stringify(resposta.data));
+        
         // Redireciona para a página de perfil
         Navigate('/perfil');
   
