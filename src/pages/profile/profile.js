@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import InputMask from 'react-input-mask'; // Biblioteca para máscaras de entrada
 import './profile.css';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
+  const navigate = useNavigate(); // Hook para navegação
   const [formData, setFormData] = useState({
     profileName: '',
     username: '',
@@ -30,6 +32,14 @@ function Profile() {
       }));
     }
   }, []);
+
+  const Sair = () => {
+    localStorage.removeItem('usuario'); // Remove o item do localStorage
+   
+    navigate('/'); // Redireciona para a página inicial
+    window.scrollTo(0, 0);
+  };
+
 
   const [profileImage, setProfileImage] = useState(null); // Imagem de perfil
   const [bannerImage, setBannerImage] = useState(null); // Imagem do banner
@@ -280,7 +290,8 @@ function Profile() {
           className="info-input"
         />
 
-        <button className="save-button">Salvar Alterações</button>
+        <button className="save-button mb-3">Salvar Alterações</button>
+        <button className="out-button"onClick={() =>{Sair()}}>Sair</button>
       </div>
     </div>
   );
