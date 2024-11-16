@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactStars from "react-rating-stars-component";
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
+import "./ProductCard.css";
 
 function ProductCard({ produto }) {
   const navigate = useNavigate(); // Hook para navegação
@@ -31,8 +32,17 @@ function ProductCard({ produto }) {
   }, [produto.id]);
 
   return (
-    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  {console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
+    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  { window.scrollTo(0, 0);console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
+    
   }}> 
+
+      {/* Balão de Desconto */}
+      {produto.desconto > 0 && (
+        <div className="discount-badge">
+          -{Math.round(produto.desconto * 100)}% {/* Exibe o valor do desconto em porcentagem*/}
+        </div>
+      )}
+
         <img src={img} alt='planta' className="card-img-top object-fit-cover" height={240} />
 
         {/* Botão do ícone de coração */}

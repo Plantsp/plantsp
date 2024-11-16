@@ -6,6 +6,8 @@ import Sobre from "../pages/sobrenos/sobrenos";
 import Produto from "../pages/produto/produto";
 import Favoritos from "../pages/favorites/pagefavorites";
 import Faq from "../pages/faq/faq";
+import Promocao from "../pages/promocao/promocao";
+import Carrinho from "../pages/carrinho/carrinho";
 
 import { Route, Routes as RoutesDom } from "react-router-dom";
 
@@ -19,6 +21,8 @@ const Routes = () => {
         <Route path="sobrenos" element={<Sobre/>} />
         <Route path="favoritos" element={<Favoritos/>} />
         <Route path="faq" element={<Faq/>} />  
+        <Route path="promocoes" element={<Promocao/>} />  
+        <Route path="carrinho" element={<Carrinho/>} />  
         <Route path="produto/:id" element={<Produto/>} />
       </RoutesDom>
   )

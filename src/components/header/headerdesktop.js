@@ -54,7 +54,7 @@ function Header() {
                 <li><Link to="">Meus pedidos</Link></li>
                 <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
                 <li><Link to="/sobrenos"onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
-                <li><Link to="">Promoções</Link></li>
+                <li><Link to="/promocoes"onClick={() => navigate("/promocoes")}>Promoções</Link></li>
                 <li><Link to="/faq"onClick={() => navigate("/faq")}>FAQ</Link></li>
               </ul>
             </nav>
@@ -62,7 +62,7 @@ function Header() {
 
           {/* ICONES */}
           <div className="icon-container align-self-center">
-            <FaShoppingCart className="icon" />
+            <FaShoppingCart className="icon" onClick={() => navigate("/carrinho")} />
             <FaHeart className="icon" onClick={() => navigate("/favoritos")}/>
             <button className='btn-iconuser' onClick={() => navigate("/login")}>
               <FaUser className="icon" />
@@ -83,10 +83,8 @@ function Header() {
                 </button>
               </div>
               <div className="modal-body">
-                <p>Segunda à Sexta-feira, das 9:00h às 18:00 hrs</p>
-                <p>Sábado das 9:00 às 16:00 hrs</p>
-                <p>Telefone: 00000-0000</p>
-                <p>Whatsapp: 00000-0000</p>
+                <p>Telefone: (11) 2575-1652</p>
+                <p>Whatsapp: (11) 98274-2236</p>
                 <p>Email: nome@exemplo.com</p>
               </div>
               <div className="modal-footer">

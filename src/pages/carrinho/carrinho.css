@@ -1,0 +1,50 @@
+.text-green {
+    color: #114310; /* Verde */
+  }
+  
+  .cart-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o conteúdo do card */
+  }
+
+  .product-image {
+    width: 80px; /* Tamanho fixo */
+    height: 80px;
+    object-fit: cover; /* Corta a imagem para caber na área */
+    border-radius: 8px; /* Borda arredondada para estética */
+    background-color: aquamarine;
+  }
+
+  .total-compra h5, .total-compra p {
+    margin: 0;
+  }
+  
+  .btn-comprar {
+    background-color: #114310;
+    color: #fff;
+    width: 20%;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .btn-comprar:hover{
+    background-color: #29792f;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .btn-voltarcomp {
+    background-color: #DDDDDD;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .btn-voltarcomp:hover {
+    background-color: #aca7a7;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .button-fixed-width {
+    width: 200px; /* Define uma largura fixa para os botões */
+  }
+  

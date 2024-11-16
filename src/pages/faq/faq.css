@@ -1,124 +1,49 @@
-#G{
-    height: 65vw;
-    padding-top: 6vw;
-    justify-content: center;
+.faq-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
+.faq-card {
+    width: 80%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-#pergunta{
-    padding: 2vw 0 0 3.5vw;
-    width: 42vw;
-    height: 12vw;
+.faq-card:hover {
+    background-color: #f1f1f1;
+}
+
+.faq-card-header {
     display: flex;
-    background-color: #212c2350;
-    border-radius: 0.8vw;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#cliente_pergunta{
-    position: absolute;
-    font: bold 18pt Verdana;
-    color:rgb(29, 29, 29);
-    user-select: none;
+.faq-card h3 {
+    margin: 0;
+    font-size: 18px;
 }
 
-#arera_pergunta{
-    width: 35vw;
-    height: 2vw;
-    border: none;
-    border-radius: 0.4vw;
-    background-color: rgb(219, 219, 219);
-    padding-left: 2vw;
-    margin-top: 3vw;
+.faq-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
 }
 
-#btns{
-    margin: 6vw 0 0 20vw;
-    position: absolute;
+.faq-icon.active {
+    transform: rotate(180deg); /* A seta gira quando o card está aberto */
+    
 }
 
-.perbtn{
-    height: 2vw;
-    width: 7vw;
-    border-radius: 0.4vw;
-    color:aliceblue;
-    border: none;
-    transition: 1s;
-}
-
-#deletar{
-    background-color: #EE5757;
-    font: bold 12pt Verdana;
-}
-
-#enviar{
-    background-color: #4BBA76;
-    font: bold 12pt Verdana;
-    margin: 0 0 0 0.8vw
-}
-
-#deletar:hover{
-    background-color: rgb(218, 123, 123);
-    transition: 0.5s;
-}
-
-#enviar:hover{
-    background-color: rgb(126, 197, 104);
-    transition: 0.5s;
-}
-
-.faq_label{
-    position: absolute;
-    margin:  15vw 35vw 0 0;
-    font: bold 1.2vw Verdana
-}
-
-#pergunta_rep{
-    margin-top: 19vw;
-    position: absolute;
-    height:40vw;
-    overflow: hidden;
-}
-
-.caixa_pr{
-    background-color: #e4e4e4;
-    width: 50vw;
-    height:10vw;
-    margin: 0 0 2vw 0;
-    border-radius: 1vw;
-    border-width: 0.4vw;
-    border-style:dotted;
-    border-color: #2f5b2e7a;
-}
-
-.perguntaT{
-    font: bold 1.3vw Arial;
-    position: absolute;
-    margin: 1.1vw 0 0 2vw;
-}
-
-.caixa_da_pergunta{
-    font: bold 0.8vw Arial;
-    position: absolute;
-    margin: 3vw 0 0 2vw;
-    color: #4e4e4e;
-}
-
-.RespostT{
-    font: bold 1.3vw Arial;
-    position: absolute;
-    margin: 0.5vw 0 0 2vw;
-}
-
-.caixa_de_resposta{
-    font: bold 0.8vw Arial;
-    position: absolute;
-    margin: 2.4vw 0 0 2vw;
-    color: #4e4e4e;
-}
-
-.sep{   
-    margin-top: 4.3vw;
-    height: 4vw;
-    border-top: 0.3vw solid #2f5b2e2d;
+.faq-resposta {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
 }
