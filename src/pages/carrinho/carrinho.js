@@ -7,7 +7,7 @@ import Footer from '../../components/footer/footer';
 import './carrinho.css';
 
 const Carrinho = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [carrinho, setCarrinho] = useState([]);
   const [totalCompra, setTotalCompra] = useState(0);
 
