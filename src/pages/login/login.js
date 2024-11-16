@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { FaGoogle } from 'react-icons/fa'; // Importa o ícone do Google
 import './login.css'; 
 import Header from '../../components/header/headerdesktop';
@@ -10,6 +10,15 @@ function Login() {
   const Navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+    // Preenche o email do localStorage
+    useEffect(() => {
+      const usuario = localStorage.getItem('usuario');
+      if (usuario) {
+        Navigate('/perfil');
+      }
+    }, []);
+  
 
   async function loginUsuario(email, senha, e) {
     e.preventDefault();
