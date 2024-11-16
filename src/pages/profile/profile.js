@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import InputMask from 'react-input-mask'; // Biblioteca para máscaras de entrada
 import './profile.css';
 import { useNavigate } from 'react-router-dom';
+import Header from '../../components/header/headerdesktop';
 
 function Profile() {
   const navigate = useNavigate(); // Hook para navegação
@@ -129,6 +130,8 @@ function Profile() {
   };
 
   return (
+    <div>
+      <Header></Header>
     <div className="profile-container">
       {/* Banner Azul */}
       <div className="banner-container" onClick={handleBannerClick} style={{ cursor: 'pointer' }}>
@@ -174,14 +177,14 @@ function Profile() {
           onChange={handleInputChange}
           className="info-input"
         />
-        <input
+        {/* <input
           type="text"
           name="username"
           placeholder="Nome de Usuário"
           value={formData.username}
           onChange={handleInputChange}
           className="info-input"
-        />
+        /> */}
         <input
           type="email"
           name="email"
@@ -293,6 +296,7 @@ function Profile() {
         <button className="save-button mb-3">Salvar Alterações</button>
         <button className="out-button"onClick={() =>{Sair()}}>Sair</button>
       </div>
+    </div>
     </div>
   );
 }
