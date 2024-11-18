@@ -254,7 +254,7 @@ z-index: 100;
 .search-bar-container {
   width: 100%;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: var(--verde-escuro);
 }
 
 .search-bar {
