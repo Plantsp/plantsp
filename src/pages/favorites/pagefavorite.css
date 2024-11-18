@@ -49,9 +49,16 @@
 }
 
 /* Preço do produto */
-.favorite-card-price {
-    font-size: 16px; /* Tamanho da fonte */
-    color: #80AF6F; /* Cor do preço */
+.favorite-card-desc {
+    color: #2F5B2E;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.favorite-card-price{
+    text-decoration: line-through;
+    color: rgb(165, 50, 50);
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Mensagem de ausência de favoritos */

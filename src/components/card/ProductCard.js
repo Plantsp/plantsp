@@ -32,40 +32,60 @@ function ProductCard({ produto }) {
   }, [produto.id]);
 
   return (
-    <div className="card w-100" style={{ cursor: "pointer" }} onClick={() =>  { window.scrollTo(0, 0);console.log("produto clicado: ", produto); navigate(`/produto/${produto.id}`);
-    
-  }}> 
-
+    <div 
+      className="card w-100" 
+      style={{ cursor: "pointer" }} 
+      onClick={() => {
+        window.scrollTo(0, 0);
+        console.log("produto clicado: ", produto);
+        navigate(`/produto/${produto.id}`);
+      }}
+    > 
       {/* Balão de Desconto */}
       {produto.desconto > 0 && (
         <div className="discount-badge">
-          -{Math.round(produto.desconto * 100)}% {/* Exibe o valor do desconto em porcentagem*/}
+          -{Math.round(produto.desconto * 100)}% {/* Exibe o valor do desconto em porcentagem */}
         </div>
       )}
 
-        <img src={img} alt='planta' className="card-img-top object-fit-cover" height={240} />
+      <img 
+        src={img} 
+        alt="planta" 
+        className="card-img-top object-fit-cover" 
+        height={240} 
+      />
 
-        {/* Botão do ícone de coração */}
-      <button className="btn btn-link position-absolute" 
+      {/* Botão do ícone de coração */}
+      <button 
+        className="btn btn-link position-absolute" 
         style={{ top: '10px', right: '10px', color: isFavorited ? 'red' : '#331800', zIndex: 10 }}
-        onClick={(e) => { e.stopPropagation(); toggleFavorite(); }}>
+        onClick={(e) => { e.stopPropagation(); toggleFavorite(); }}
+      >
         <FaHeart size={24} />
       </button>
 
-        <div className="card-body p-2">
-            <h5 className="card-title text-truncate">{produto.nome}</h5>
-            <p className="card-text">R${produto.preco.toString().replace(".", ",")}</p>
-            <ReactStars
-              count={5}
-              halfIcon={<i className="fa fa-star-half-alt"></i>}
-              fullIcon={<i className="fa fa-star"></i>}
-              isHalf={true}
-              edit={false}
-              size={24}
-              value={produto.avaliacao}
-              activeColor="#ffd700"
-            />
-        </div>
+      <div className="card-body p-2">
+        <h5 className="card-title text-truncate">{produto.nome}</h5>
+        <p className="card-text">R${produto.preco.toFixed(2).replace(".", ",")}</p>
+
+        {/* Exibe o preço com desconto */}
+        {produto.desconto > 0 && (
+          <p className="desc">
+            R$ {(produto.preco * (1 - produto.desconto)).toFixed(2).replace(".", ",")}
+          </p>
+        )}
+
+        <ReactStars
+          count={5}
+          halfIcon={<i className="fa fa-star-half-alt"></i>}
+          fullIcon={<i className="fa fa-star"></i>}
+          isHalf={true}
+          edit={false}
+          size={24}
+          value={produto.avaliacao}
+          activeColor="#ffd700"
+        />
+      </div>
     </div>
   );
 }

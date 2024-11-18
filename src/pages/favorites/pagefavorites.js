@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importando ícones de coração
 import "./pagefavorite.css";
 import Header from '../../components/header/headerdesktop';
+import ReactStars from "react-rating-stars-component";
 
 function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
@@ -50,6 +51,18 @@ function FavoritesPage() {
                     </div>
                   </div>
                   <p className="favorite-card-price">R$ {produto.preco.toFixed(2).replace('.', ',')}</p>
+                  <p className="favorite-card-desc">R$ {(produto.preco * (1 - produto.desconto)).toFixed(2).replace(".", ",")}</p>
+                  
+                  <ReactStars
+                  count={5}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  isHalf={true}
+                  edit={false}
+                  size={24}
+                  value={produto.avaliacao}
+                  activeColor="#ffd700"
+        />
                 </div>
               </div>
             ))}
