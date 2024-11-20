@@ -7,19 +7,19 @@ import Header from '../../components/header/headerdesktop';
 function Profile() {
   const navigate = useNavigate(); // Hook para navegação
   const [formData, setFormData] = useState({
-    profileName: '',
+    nome: '',
     // username: '',
     email: '',
-    phone: '',
+    telefone: '',
     cpf: '',
-    streetNumber: '',
-    address: '',
-    complement: '',
-    zip: '',
-    neighborhood: '',
-    city: '',
-    state: '',
-    birthDate: '',
+    numeroRua: '',
+    endereco: '',
+    complemento: '',
+    cep: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+    datanasc: '',
   });
 
   // Preenche o email do localStorage
@@ -30,7 +30,18 @@ function Profile() {
       setFormData((prevData) => ({
         ...prevData,
         email: usuarioDados.email || '',
-        profileName: usuarioDados.profileName || '',
+        nome: usuarioDados.nome || '',
+        telefone: usuarioDados.telefone || '',
+        cpf: usuarioDados.cpf || '',
+        numeroRua: usuarioDados.numeroRua || '',
+        endereco: usuarioDados.endereco || '',
+        complemento: usuarioDados.complemento || '',
+        cep: usuarioDados.cep || '',
+        bairro: usuarioDados.bairro || '',
+        cidade: usuarioDados.cidade || '',
+        estado: usuarioDados.estado || '',
+        datanasc: usuarioDados.datanasc || '',
+        
       }));
     }
   }, []);
@@ -64,27 +75,27 @@ function Profile() {
   };
 
   const fetchGeolocation = async () => {
-    if (formData.zip) {
+    if (formData.cep) {
       try {
-        const response = await fetch(`https://viacep.com.br/ws/${formData.zip}/json/`);
+        const response = await fetch(`https://viacep.com.br/ws/${formData.cep}/json/`);
         const data = await response.json();
 
         if (!data.erro) {
           setFormData((prevData) => ({
             ...prevData,
-            address: data.logradouro || prevData.address,
-            neighborhood: data.bairro || prevData.neighborhood,
-            city: data.localidade || prevData.city,
-            state: data.uf || prevData.state,
+            endereco: data.logradouro || prevData.endereco,
+            bairro: data.bairro || prevData.bairro,
+            cidade: data.localidade || prevData.cidade,
+            estado: data.uf || prevData.estado,
           }));
         } else {
           alert('CEP inválido! Por favor, insira um CEP correto.');
           setFormData((prevData) => ({
             ...prevData,
-            address: '',
-            neighborhood: '',
-            city: '',
-            state: '',
+            endereco: '',
+            bairro: '',
+            cidade: '',
+            estado: '',
           }));
         }
       } catch (error) {
@@ -98,8 +109,8 @@ function Profile() {
     return cpf.length === 14; // Formato 000.000.000-00
   };
 
-  const validatePhone = (phone) => {
-    return phone.length === 15; // Formato (00) 00000-0000
+  const validatetelefone = (telefone) => {
+    return telefone.length === 15; // Formato (00) 00000-0000
   };
 
   // Função para lidar com o upload da imagem
@@ -171,9 +182,9 @@ function Profile() {
       <div className="info-card">
         <input
           type="text"
-          name="profileName"
+          name="nome"
           placeholder="Nome"
-          value={formData.profileName}
+          value={formData.nome}
           onChange={handleInputChange}
           className="info-input"
         />
@@ -195,15 +206,15 @@ function Profile() {
         />
         <InputMask
           mask="(99) 99999-9999"
-          value={formData.phone}
+          value={formData.telefone}
           onChange={handleInputChange}
         >
           {() => (
             <input
               type="text"
-              name="phone"
+              name="telefone"
               placeholder="Celular"
-              className={`info-input ${!validatePhone(formData.phone) ? 'invalid' : ''}`}
+              className={`info-input ${!validatetelefone(formData.telefone) ? 'invalid' : ''}`}
             />
           )}
         </InputMask>
@@ -223,13 +234,13 @@ function Profile() {
         </InputMask>
         <InputMask
           mask="99/99/9999"
-          value={formData.birthDate}
+          value={formData.datanasc}
           onChange={handleInputChange}
         >
           {() => (
             <input
               type="text"
-              name="birthDate"
+              name="datanasc"
               placeholder="Data de Nascimento"
               className="info-input"
             />
@@ -237,58 +248,58 @@ function Profile() {
         </InputMask>
         <input
           type="text"
-          name="zip"
+          name="cep"
           placeholder="CEP"
-          value={formData.zip}
+          value={formData.cep}
           onChange={handleInputChange}
           onBlur={fetchGeolocation}
           className="info-input"
         />
         <input
           type="text"
-          name="address"
+          name="endereco"
           placeholder="Rua"
-          value={formData.address}
+          value={formData.endereco}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="streetNumber"
+          name="numeroRua"
           placeholder="Número"
-          value={formData.streetNumber}
+          value={formData.numeroRua}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="complement"
+          name="complemento"
           placeholder="Complemento (opcional)"
-          value={formData.complement}
+          value={formData.complemento}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="neighborhood"
+          name="bairro"
           placeholder="Bairro"
-          value={formData.neighborhood}
+          value={formData.bairro}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="city"
+          name="cidade"
           placeholder="Cidade"
-          value={formData.city}
+          value={formData.cidade}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="state"
+          name="estado"
           placeholder="Estado"
-          value={formData.state}
+          value={formData.estado}
           onChange={handleInputChange}
           className="info-input"
         />

@@ -20,7 +20,7 @@
 
 .profile-image-container {
   position: absolute;
-  left: 80px; /* Ajuste a distância do lado esquerdo */
+  left: 10%; /* Ajuste a distância do lado esquerdo */
   top: 180px; /* Ajuste a distância do topo */
 }
 
