@@ -41,7 +41,6 @@ function Profile() {
         cidade: usuarioDados.cidade || '',
         estado: usuarioDados.estado || '',
         datanasc: usuarioDados.datanasc || '',
-        
       }));
     }
   }, []);
@@ -52,12 +51,15 @@ function Profile() {
     window.scrollTo(0, 0);
   };
 
+  const salvarAlteracao = () => {
+    // Salva os dados atualizados no localStorage
+    localStorage.setItem('usuario', JSON.stringify(formData));
+    alert('Alterações salvas com sucesso!');
+  };
 
   const [profileImage, setProfileImage] = useState(null); // Imagem de perfil
-  const [bannerImage, setBannerImage] = useState(null); // Imagem do banner
 
   // Criar referência para o input de arquivo do banner
-  const bannerInputRef = useRef(null);
   const profileInputRef = useRef(null); // Adiciona a referência para a foto de perfil
 
   // Função de auto-salvamento
@@ -121,17 +123,10 @@ function Profile() {
       reader.onloadend = () => {
         if (type === 'profile') {
           setProfileImage(reader.result);
-        } else if (type === 'banner') {
-          setBannerImage(reader.result);
         }
       };
       reader.readAsDataURL(file);
     }
-  };
-
-  // Função para abrir o seletor de arquivos ao clicar no banner
-  const handleBannerClick = () => {
-    bannerInputRef.current.click();
   };
 
   // Função para abrir o seletor de arquivos ao clicar na foto de perfil
@@ -145,12 +140,9 @@ function Profile() {
       <Header></Header>
     <div className="profile-container">
       {/* Banner Azul */}
-      <div className="banner-container" onClick={handleBannerClick} style={{ cursor: 'pointer' }}>
-        {bannerImage ? (
-          <img src={bannerImage} alt="Banner" className="banner-image" />
-        ) : (
-          <div className="banner-image">Clique para adicionar banner</div>
-        )}
+      <div className="banner-container">
+        {/* Banner fixo */}
+        <img src="/assets/img/bannerverde.jpeg" alt="Banner" className="banner-image"/>
         <div className="profile-image-container" onClick={handleProfileClick} style={{ cursor: 'pointer' }}>
           {profileImage ? (
             <img src={profileImage} alt="Perfil" className="profile-image" />
@@ -159,15 +151,6 @@ function Profile() {
           )}
         </div>
       </div>
-
-      {/* Input invisível para upload do banner */}
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => handleImageChange(e, 'banner')}
-        ref={bannerInputRef}
-        style={{ display: 'none' }} // Input escondido
-      />
 
       {/* Input invisível para upload da foto de perfil */}
       <input
@@ -304,7 +287,7 @@ function Profile() {
           className="info-input"
         />
 
-        <button className="save-button mb-3">Salvar Alterações</button>
+        <button className="save-button mb-3"onClick={(e) => {e.preventDefault();salvarAlteracao();}}>Salvar Alterações</button>
         <button className="out-button"onClick={() =>{Sair()}}>Sair</button>
       </div>
     </div>
