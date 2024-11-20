@@ -1,29 +1,65 @@
 import React, { useState, useEffect, useRef } from 'react';
 import InputMask from 'react-input-mask'; // Biblioteca para máscaras de entrada
 import './profile.css';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/header/headerdesktop';
 
 function Profile() {
+  const navigate = useNavigate(); // Hook para navegação
   const [formData, setFormData] = useState({
-    profileName: '',
-    username: '',
+    nome: '',
+    // username: '',
     email: '',
-    phone: '',
+    telefone: '',
     cpf: '',
-    streetNumber: '',
-    address: '',
-    complement: '',
-    zip: '',
-    neighborhood: '',
-    city: '',
-    state: '',
-    birthDate: '',
+    numeroRua: '',
+    endereco: '',
+    complemento: '',
+    cep: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+    datanasc: '',
   });
 
+  // Preenche o email do localStorage
+  useEffect(() => {
+    const usuario = localStorage.getItem('usuario');
+    if (usuario) {
+      const usuarioDados = JSON.parse(usuario);
+      setFormData((prevData) => ({
+        ...prevData,
+        email: usuarioDados.email || '',
+        nome: usuarioDados.nome || '',
+        telefone: usuarioDados.telefone || '',
+        cpf: usuarioDados.cpf || '',
+        numeroRua: usuarioDados.numeroRua || '',
+        endereco: usuarioDados.endereco || '',
+        complemento: usuarioDados.complemento || '',
+        cep: usuarioDados.cep || '',
+        bairro: usuarioDados.bairro || '',
+        cidade: usuarioDados.cidade || '',
+        estado: usuarioDados.estado || '',
+        datanasc: usuarioDados.datanasc || '',
+      }));
+    }
+  }, []);
+
+  const Sair = () => {
+    localStorage.removeItem('usuario'); // Remove o item do localStorage
+    navigate('/'); // Redireciona para a página inicial
+    window.scrollTo(0, 0);
+  };
+
+  const salvarAlteracao = () => {
+    // Salva os dados atualizados no localStorage
+    localStorage.setItem('usuario', JSON.stringify(formData));
+    alert('Alterações salvas com sucesso!');
+  };
+
   const [profileImage, setProfileImage] = useState(null); // Imagem de perfil
-  const [bannerImage, setBannerImage] = useState(null); // Imagem do banner
 
   // Criar referência para o input de arquivo do banner
-  const bannerInputRef = useRef(null);
   const profileInputRef = useRef(null); // Adiciona a referência para a foto de perfil
 
   // Função de auto-salvamento
@@ -41,27 +77,27 @@ function Profile() {
   };
 
   const fetchGeolocation = async () => {
-    if (formData.zip) {
+    if (formData.cep) {
       try {
-        const response = await fetch(`https://viacep.com.br/ws/${formData.zip}/json/`);
+        const response = await fetch(`https://viacep.com.br/ws/${formData.cep}/json/`);
         const data = await response.json();
 
         if (!data.erro) {
           setFormData((prevData) => ({
             ...prevData,
-            address: data.logradouro || prevData.address,
-            neighborhood: data.bairro || prevData.neighborhood,
-            city: data.localidade || prevData.city,
-            state: data.uf || prevData.state,
+            endereco: data.logradouro || prevData.endereco,
+            bairro: data.bairro || prevData.bairro,
+            cidade: data.localidade || prevData.cidade,
+            estado: data.uf || prevData.estado,
           }));
         } else {
           alert('CEP inválido! Por favor, insira um CEP correto.');
           setFormData((prevData) => ({
             ...prevData,
-            address: '',
-            neighborhood: '',
-            city: '',
-            state: '',
+            endereco: '',
+            bairro: '',
+            cidade: '',
+            estado: '',
           }));
         }
       } catch (error) {
@@ -75,8 +111,8 @@ function Profile() {
     return cpf.length === 14; // Formato 000.000.000-00
   };
 
-  const validatePhone = (phone) => {
-    return phone.length === 15; // Formato (00) 00000-0000
+  const validatetelefone = (telefone) => {
+    return telefone.length === 15; // Formato (00) 00000-0000
   };
 
   // Função para lidar com o upload da imagem
@@ -87,17 +123,10 @@ function Profile() {
       reader.onloadend = () => {
         if (type === 'profile') {
           setProfileImage(reader.result);
-        } else if (type === 'banner') {
-          setBannerImage(reader.result);
         }
       };
       reader.readAsDataURL(file);
     }
-  };
-
-  // Função para abrir o seletor de arquivos ao clicar no banner
-  const handleBannerClick = () => {
-    bannerInputRef.current.click();
   };
 
   // Função para abrir o seletor de arquivos ao clicar na foto de perfil
@@ -107,14 +136,13 @@ function Profile() {
   };
 
   return (
+    <div>
+      <Header></Header>
     <div className="profile-container">
       {/* Banner Azul */}
-      <div className="banner-container" onClick={handleBannerClick} style={{ cursor: 'pointer' }}>
-        {bannerImage ? (
-          <img src={bannerImage} alt="Banner" className="banner-image" />
-        ) : (
-          <div className="banner-image">Clique para adicionar banner</div>
-        )}
+      <div className="banner-container">
+        {/* Banner fixo */}
+        <img src="/assets/img/bannerverde.jpeg" alt="Banner" className="banner-image"/>
         <div className="profile-image-container" onClick={handleProfileClick} style={{ cursor: 'pointer' }}>
           {profileImage ? (
             <img src={profileImage} alt="Perfil" className="profile-image" />
@@ -123,15 +151,6 @@ function Profile() {
           )}
         </div>
       </div>
-
-      {/* Input invisível para upload do banner */}
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => handleImageChange(e, 'banner')}
-        ref={bannerInputRef}
-        style={{ display: 'none' }} // Input escondido
-      />
 
       {/* Input invisível para upload da foto de perfil */}
       <input
@@ -146,20 +165,20 @@ function Profile() {
       <div className="info-card">
         <input
           type="text"
-          name="profileName"
+          name="nome"
           placeholder="Nome"
-          value={formData.profileName}
+          value={formData.nome}
           onChange={handleInputChange}
           className="info-input"
         />
-        <input
+        {/* <input
           type="text"
           name="username"
           placeholder="Nome de Usuário"
           value={formData.username}
           onChange={handleInputChange}
           className="info-input"
-        />
+        /> */}
         <input
           type="email"
           name="email"
@@ -170,15 +189,15 @@ function Profile() {
         />
         <InputMask
           mask="(99) 99999-9999"
-          value={formData.phone}
+          value={formData.telefone}
           onChange={handleInputChange}
         >
           {() => (
             <input
               type="text"
-              name="phone"
+              name="telefone"
               placeholder="Celular"
-              className={`info-input ${!validatePhone(formData.phone) ? 'invalid' : ''}`}
+              className={`info-input ${!validatetelefone(formData.telefone) ? 'invalid' : ''}`}
             />
           )}
         </InputMask>
@@ -198,13 +217,13 @@ function Profile() {
         </InputMask>
         <InputMask
           mask="99/99/9999"
-          value={formData.birthDate}
+          value={formData.datanasc}
           onChange={handleInputChange}
         >
           {() => (
             <input
               type="text"
-              name="birthDate"
+              name="datanasc"
               placeholder="Data de Nascimento"
               className="info-input"
             />
@@ -212,64 +231,66 @@ function Profile() {
         </InputMask>
         <input
           type="text"
-          name="zip"
+          name="cep"
           placeholder="CEP"
-          value={formData.zip}
+          value={formData.cep}
           onChange={handleInputChange}
           onBlur={fetchGeolocation}
           className="info-input"
         />
         <input
           type="text"
-          name="address"
+          name="endereco"
           placeholder="Rua"
-          value={formData.address}
+          value={formData.endereco}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="streetNumber"
+          name="numeroRua"
           placeholder="Número"
-          value={formData.streetNumber}
+          value={formData.numeroRua}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="complement"
+          name="complemento"
           placeholder="Complemento (opcional)"
-          value={formData.complement}
+          value={formData.complemento}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="neighborhood"
+          name="bairro"
           placeholder="Bairro"
-          value={formData.neighborhood}
+          value={formData.bairro}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="city"
+          name="cidade"
           placeholder="Cidade"
-          value={formData.city}
+          value={formData.cidade}
           onChange={handleInputChange}
           className="info-input"
         />
         <input
           type="text"
-          name="state"
+          name="estado"
           placeholder="Estado"
-          value={formData.state}
+          value={formData.estado}
           onChange={handleInputChange}
           className="info-input"
         />
 
-        <button className="save-button">Salvar Alterações</button>
+        <button className="save-button mb-3"onClick={(e) => {e.preventDefault();salvarAlteracao();}}>Salvar Alterações</button>
+        <button className="out-button"onClick={() =>{Sair()}}>Sair</button>
       </div>
+    </div>
     </div>
   );
 }
