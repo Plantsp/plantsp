@@ -17,7 +17,7 @@ function Login() {
       if (usuario) {
         Navigate('/perfil');
       }
-    }, []);
+    }, [Navigate]);
   
 
   async function loginUsuario(email, senha, e) {
