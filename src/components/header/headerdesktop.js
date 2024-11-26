@@ -51,7 +51,7 @@ function Header() {
             <nav className="navigation pt-1">
               <ul className="nav-list">
                 <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
-                <li><Link to="">Meus pedidos</Link></li>
+                <li><Link to="/meuspedidos"onClick={() => navigate("/meuspedidos")}>Meus pedidos</Link></li>
                 <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
                 <li><Link to="/sobrenos"onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
                 <li><Link to="/promocoes"onClick={() => navigate("/promocoes")}>Promoções</Link></li>
