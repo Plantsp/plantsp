@@ -5,14 +5,40 @@ body {
     margin: 0;
     padding: 0;
   }
-  
+  .text-center{
+    text-align: center;
+  }
   .checkout-container {
-    max-width: 800px;
-    margin: 50px auto;
+   padding-left: 10%;
+   padding-right: 10%;
+    /* margin: 10px auto;
     background: #ffffff;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 8px; */
+  }
+  .compra-concluida {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .selo-compra {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .barra-progresso {
+    margin-top: 20px;
+    height: 5px;
+    background-color: #f0f0f0;
+  }
+  
+  .barra {
+    height: 100%;
+    background-color: #28a745;
+    transition: width 1s ease;
   }
   
   .checkout-title {
@@ -23,10 +49,51 @@ body {
     margin-bottom: 20px;
   }
   
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  .close-modal-button {
+    margin-top: 10px;
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .close-modal-button:hover {
+    background-color: #d32f2f;
+  }
+
   .checkout-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 7px;
+  }
+
+  .info-inputt {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
   .form-input {
@@ -84,5 +151,7 @@ body {
       font-size: 14px;
       padding: 10px;
     }
+
+    
   }
   
