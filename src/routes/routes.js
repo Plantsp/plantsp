@@ -9,6 +9,7 @@ import Faq from "../pages/faq/faq";
 import Promocao from "../pages/promocao/promocao";
 import Carrinho from "../pages/carrinho/carrinho";
 import FinalizarCompra from "../pages/compra/FinalizaCompra";
+import MeusPedidos from "../pages/pedido/MeusPedidos";
 
 import { Route, Routes as RoutesDom } from "react-router-dom";
 
@@ -24,7 +25,8 @@ const Routes = () => {
         <Route path="faq" element={<Faq/>} />  
         <Route path="promocoes" element={<Promocao/>} />  
         <Route path="carrinho" element={<Carrinho/>} /> 
-        <Route path="finalizarcompra" element={<FinalizarCompra/>} />  
+        <Route path="finalizarcompra" element={<FinalizarCompra/>} />
+        <Route path="meuspedidos" element={<MeusPedidos/>} />  
         <Route path="produto/:id" element={<Produto/>} />
       </RoutesDom>
   )
