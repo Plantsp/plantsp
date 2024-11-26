@@ -32,7 +32,7 @@ function FavoritesPage() {
     <div>
       <Header />
       <div className="favorites-page">
-        <h2 className="title-top pt-3">PRODUTOS FAVORITOS</h2>
+        <h2 className="title-top pt-3">Produtos favoritados</h2>
         <p className="favorites-count">Total de produtos favoritados: {favorites.length}</p> {/* Exibe a contagem */}
         {favorites.length > 0 ? (
           <div className="favorites-container">
