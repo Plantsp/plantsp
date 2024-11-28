@@ -3,6 +3,7 @@ import InputMask from 'react-input-mask'; // Biblioteca para máscaras de entrad
 import './profile.css';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/headerdesktop';
+import Footer from '../../components/footer/footer';
 
 function Profile() {
   const navigate = useNavigate(); // Hook para navegação
@@ -136,14 +137,18 @@ function Profile() {
   };
 
   return (
-    <div>
-      <Header></Header>
+  <div>
+    <Header></Header>
     <div className="profile-container">
       {/* Banner Azul */}
       <div className="banner-container">
         {/* Banner fixo */}
-        <img src="/assets/img/bannerverde.jpeg" alt="Banner" className="banner-image"/>
-        <div className="profile-image-container" onClick={handleProfileClick} style={{ cursor: 'pointer' }}>
+        <img src="/assets/img/bannerverde.jpeg" alt="Banner" className="banner-image" />
+        <div
+          className="profile-image-container"
+          onClick={handleProfileClick}
+          style={{ cursor: 'pointer' }}
+        >
           {profileImage ? (
             <img src={profileImage} alt="Perfil" className="profile-image" />
           ) : (
@@ -158,11 +163,13 @@ function Profile() {
         accept="image/*"
         onChange={(e) => handleImageChange(e, 'profile')}
         ref={profileInputRef}
-        style={{ display: 'none' }} // Input escondido
+        style={{ display: 'none' }}
       />
 
-      {/* Informações */}
+      {/* Card 1: Informações do Usuário */}
+      <h2 className='title-top pt-3'>Informações Pessoais</h2>
       <div className="info-card">
+        
         <input
           type="text"
           name="nome"
@@ -171,14 +178,6 @@ function Profile() {
           onChange={handleInputChange}
           className="info-input"
         />
-        {/* <input
-          type="text"
-          name="username"
-          placeholder="Nome de Usuário"
-          value={formData.username}
-          onChange={handleInputChange}
-          className="info-input"
-        /> */}
         <input
           type="email"
           name="email"
@@ -229,6 +228,21 @@ function Profile() {
             />
           )}
         </InputMask>
+        <button
+          className="save-button"
+          onClick={(e) => {
+            e.preventDefault();
+            salvarAlteracao();
+          }}
+        >
+          Salvar Alterações
+        </button>
+      </div>
+
+      {/* Card 2: Endereço */}
+      <h2 className='title-top pt-3'>Seu Endereço</h2>
+      <div className="info-card ">
+        
         <input
           type="text"
           name="cep"
@@ -286,13 +300,28 @@ function Profile() {
           onChange={handleInputChange}
           className="info-input"
         />
+      </div>
 
-        <button className="save-button mb-3"onClick={(e) => {e.preventDefault();salvarAlteracao();}}>Salvar Alterações</button>
-        <button className="out-button"onClick={() =>{Sair()}}>Sair</button>
+      {/* Botões */}
+      <div className="button-container mb-4">
+        <button
+          className="save-buttonend ml-3"
+          onClick={(e) => {
+            e.preventDefault();
+            salvarAlteracao();
+          }}
+        >
+          Salvar Endereço
+        </button>
+        <button className="out-button" onClick={() => Sair()}>
+          Sair
+        </button>
       </div>
     </div>
-    </div>
-  );
+    <Footer />
+  </div>
+);
+
 }
 
 export default Profile;
