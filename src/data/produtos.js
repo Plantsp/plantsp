@@ -8,7 +8,7 @@ export const listaProdutos = [
     "categoria": "Plantas",
     "avaliacao": 4.5,
     "descricao_detalhada": "Adicione uma suculenta ao seu espaço! Resistente e de baixa manutenção, é perfeita para trazer um toque de verde a qualquer ambiente.",
-    "imagem": "/assets/img/plantasuculenta.jpg"
+    "imagem": "https://img.freepik.com/fotos-gratis/natureza-morta-com-planta-de-cacto_23-2150477944.jpg"
     
   },
   {
@@ -20,7 +20,7 @@ export const listaProdutos = [
     "categoria": "Vasos",
     "avaliacao": 4.7,
     "descricao_detalhada": "Transforme seu ambiente com este kit de vasos de cerâmica! Elegantes e duráveis, são perfeitos para qualquer tipo de planta e adicionam um toque sofisticado à decoração.",
-    "imagem": "/assets/img/tresvasos.jpg"
+    "imagem": "https://t3.ftcdn.net/jpg/08/37/82/28/360_F_837822837_a58enLAK809QfrPqpZcLRc5MKDufkOZs.jpg"
   },
   {
     "id":"Wo0rmC8E",
@@ -31,7 +31,7 @@ export const listaProdutos = [
     "categoria": "Adubos",
     "avaliacao": 4.6,
     "descricao_detalhada": "Revitalize suas plantas com adubo orgânico! Rico em nutrientes, ele fortalece o solo, promove um crescimento saudável e é 100% natural.",
-    "imagem": "/assets/img/aduboorg1.jpg"
+    "imagem": "https://img.freepik.com/fotos-gratis/vista-superior-de-maos-com-luvas-segurando-solo-e-planta-com-espaco-de-copia_23-2148814115.jpg?semt=ais_hybrid"
   },
   {
     "id":"UpdjM1n1",
@@ -42,7 +42,7 @@ export const listaProdutos = [
     "categoria": "Ferramentas",
     "avaliacao": 4.8,
     "descricao_detalhada": "Prático e estiloso, este regador de metal facilita a irrigação das suas plantas com precisão e durabilidade. Ideal para uso interno e externo.",
-    "imagem": "/assets/img/regadormetal.jpg"
+    "imagem": "https://img.freepik.com/premium-photo/watering-can-house-planting-paper_508626-1158.jpg"
     
   },
   {
@@ -54,7 +54,7 @@ export const listaProdutos = [
     "categoria": "Ferramentas",
     "avaliacao": 4.4,
     "descricao_detalhada": "Proteja suas mãos com estas luvas de jardinagem! Confortáveis e resistentes, elas oferecem excelente aderência e proteção, tornando o cuidado das suas plantas mais seguro e agradável.",
-    "imagem": "/assets/img/luvas.jpg"
+    "imagem": "https://img.freepik.com/fotos-gratis/planta-suculenta-potted-vivida-com-par-de-luvas-no-guardanapo-sobre-a-tabela-branca_23-2147844375.jpg"
   },
   {
     "id":"PEU5XL2T",
@@ -65,7 +65,7 @@ export const listaProdutos = [
     "categoria": "Terra",
     "avaliacao": 4.5,
     "descricao_detalhada": "Prepare seu jardim com terra vegetal de alta qualidade! Rica em nutrientes, ela garante um solo saudável e fértil, ideal para o crescimento robusto de suas plantas.",
-    "imagem": "/assets/img/terra_vegetal.webp"
+    "imagem": "https://images.tcdn.com.br/img/img_prod/765836/terra_vegetal_3kg_vasart_7664_1_a70ea65754a5f93a40ad67aee3a6971f.jpg"
     
   },
   {
@@ -77,7 +77,7 @@ export const listaProdutos = [
     "categoria": "Ferramentas",
     "avaliacao": 4.9,
     "descricao_detalhada": "Cultive seus bonsais com facilidade usando este kit de ferramentas especializado! Garantindo resultados incríveis e um cuidado preciso.",
-    "imagem": "/assets/img/ferramentas.jpg"
+    "imagem": "https://agromania.cdn.magazord.com.br/img/2022/03/produto/11857/conjunto-sweet-garden-tramontina-13pcs-ambientado.gif"
     
   },
   {
@@ -89,7 +89,7 @@ export const listaProdutos = [
     "categoria": "Plantas",
     "avaliacao": 4.6,
     "descricao_detalhada": "Dê um toque exótico ao seu espaço com o kit de planta cacto! Perfeitos para quem busca plantas de baixa manutenção e com personalidade. Ideal para qualquer ambiente!",
-    "imagem": "/assets/img/kitcacto.jpg"
+    "imagem": "https://img.freepik.com/fotos-gratis/cactos-do-deserto-em-arranjo-de-estudio_23-2151261767.jpg"
     
   },
   {
@@ -101,7 +101,7 @@ export const listaProdutos = [
     "categoria": "Adubos",
     "avaliacao": 4.7,
     "descricao_detalhada": "Impulsione o crescimento das suas plantas com fertilizante líquido! Formulado para fornecer nutrientes essenciais, ele é fácil de aplicar e promove um desenvolvimento saudável e vibrante.",
-    "imagem": "/assets/img/fertilizanteliq1.jpg"
+    "imagem": "https://img.freepik.com/premium-photo/roundup-is-postgrowth-herbicide-with-active-ingredient_1197797-244574.jpg"
   },
   {
     "id":"blGk2fby",
@@ -112,7 +112,7 @@ export const listaProdutos = [
     "categoria": "Ferramentas",
     "avaliacao": 4.8,
     "descricao_detalhada": "Mantenha suas plantas saudáveis com a tesoura de poda! Projetada para cortes precisos, ela é ideal para podar, modelar e cuidar do seu jardim com eficiência e conforto.",
-    "imagem": "/assets/img/tesoura.jpg"
+    "imagem": "https://rbsecure.com.br/wp-content/uploads/2023/02/WhatsApp-Image-2023-02-13-at-22.41.55-1024x682.jpeg"
   },
   {
     "id":"hY2eZjvb",
@@ -123,7 +123,7 @@ export const listaProdutos = [
     "categoria": "Plantas",
     "avaliacao": 4.6,
     "descricao_detalhada": "Adicione um toque aromático ao seu lar com a planta de lavanda! Conhecida por suas flores vibrantes e fragrância relaxante, perfeita para jardins ou ambientes internos.",
-    "imagem": "/assets/img/lavanda.jpg"
+    "imagem": "https://img.freepik.com/fotos-premium/a-alfazema-floresce-no-vaso-branco-com-fundo-da-parede-do-espaco-da-copia_25920-960.jpg?w=360"
   },
   {
     "id":"xqY30QJo",
@@ -134,7 +134,7 @@ export const listaProdutos = [
     "categoria": "Ferramentas",
     "avaliacao": 4.9,
     "descricao_detalhada": "Projetado para fornecer água de maneira eficiente e programada, ele garante que suas plantas fiquem sempre saudáveis e bem hidratadas, mesmo quando você não está em casa.",
-    "imagem": "/assets/img/regador.jpg"
+    "imagem": "https://ec11c0b4.rocketcdn.me/wp-content/uploads/2024/09/irrigation-blog3.jpg"
   },
   {
     "id":"UGTjM0MB",
@@ -145,7 +145,7 @@ export const listaProdutos = [
     "categoria": "Ferramentas",
     "avaliacao": 4.7,
     "descricao_detalhada": "Crie o ambiente perfeito para suas plantas com uma estufa! Ideal para proteger suas plantas de intempéries e controlar a temperatura e a umidade, ela garante um crescimento saudável e vibrante durante todo o ano.",
-    "imagem": "/assets/img/estufa.jpg"
+    "imagem": "https://img.freepik.com/fotos-gratis/jardim-em-garrafa-de-vidro_1339-3029.jpg?t=st=1733009037~exp=1733012637~hmac=d78f7a776266be0e5e8f5dbfb27e45253f8816aaf83afa1a31b247867cb0d8c3&w=740"
   },
   {
     "id":"8BwVnBAh",
@@ -156,7 +156,7 @@ export const listaProdutos = [
     "categoria": "Sementes",
     "avaliacao": 4.3,
     "descricao_detalhada": "Transforme seu jardim com sementes de flores! Variedades selecionadas garantem cores vibrantes e aromas encantadores, permitindo que você crie um espaço florido e acolhedor com facilidade.",
-    "imagem": "/assets/img/sementesflores.webp"
+    "imagem": "https://images.tcdn.com.br/img/img_prod/350075/kit_sementes_de_flores_para_plantar_na_primavera_com_6_variedades_isla_17763_1_c302cb2e10d92ab249929fcd509f4f3b.png"
   },
   {
     "id":"lVz1cJzI",
