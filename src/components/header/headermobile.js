@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState,  useEffect } from 'react';
 import { FaBars, FaSearch, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
+import { listaProdutos } from "../../data/produtos"; // Ajuste o caminho conforme necessário.
 
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
@@ -9,8 +10,22 @@ function HeaderMobile() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProdutos, setFilteredProdutos] = useState([]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFilteredProdutos([]);
+    } else {
+      const resultados = listaProdutos.filter((produto) =>
+        produto.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (produto.marca && produto.marca.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+      setFilteredProdutos(resultados);
+    }
+  }, [searchTerm]);
   const handleModalOpen = () => setShowModal(true);
   const handleModalClose = () => setShowModal(false);
 
@@ -39,8 +54,33 @@ function HeaderMobile() {
             type="text"
             placeholder="Procure por produto, nome, marca..."
             className="search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
+          {searchTerm && (
+              <div className="search-results">
+                {filteredProdutos.length > 0 ? (
+                  filteredProdutos.map((produto) => (
+                    <div
+                    key={produto.id}
+                    className="search-item"
+                    onClick={() => {
+                      setSearchTerm(''); // Limpa o campo de busca
+                      setFilteredProdutos([]); // Limpa os resultados
+                      navigate(`/produto/${produto.id}`); // Navega para a página do produto
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {produto.nome} - {produto.categoria || ''}
+                    </div>
+                  ))
+                ) : (
+                  <div className="search-item">Nenhum produto encontrado</div>
+                )}
+              </div>
+            )}
         </div>
+        
       </div>
       
 

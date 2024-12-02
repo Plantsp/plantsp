@@ -1,15 +1,19 @@
 import './header.css';
-import HeaderMobile from './headermobile'; // Importar seu componente HeaderMobile
+import HeaderMobile from './headermobile';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaShoppingCart, FaUser, FaSearch, FaHeart } from 'react-icons/fa';
+import { listaProdutos } from "../../data/produtos"; // Ajuste o caminho conforme necessário.
 
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
 function Header() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Defina a largura para considerar mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // Hook para navegação
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProdutos, setFilteredProdutos] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,6 +26,18 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFilteredProdutos([]);
+    } else {
+      const resultados = listaProdutos.filter((produto) =>
+        produto.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (produto.marca && produto.marca.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+      setFilteredProdutos(resultados);
+    }
+  }, [searchTerm]);
+
   const handleModalOpen = () => setShowModal(true);
   const handleModalClose = () => setShowModal(false);
 
@@ -31,7 +47,6 @@ function Header() {
         <HeaderMobile />
       ) : (
         <header className="header">
-          
           <div className='align-self-center' onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
             <img src={logo} alt='logo' className='imglogo' />
           </div>
@@ -44,18 +59,42 @@ function Header() {
                 type="text"
                 placeholder="Procure por produto, nome, marca..."
                 className="search-input"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
+            {searchTerm && (
+              <div className="search-results">
+                {filteredProdutos.length > 0 ? (
+                  filteredProdutos.map((produto) => (
+                    <div
+                    key={produto.id}
+                    className="search-item"
+                    onClick={() => {
+                      setSearchTerm(''); // Limpa o campo de busca
+                      setFilteredProdutos([]); // Limpa os resultados
+                      navigate(`/produto/${produto.id}`); // Navega para a página do produto
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {produto.nome} - {produto.categoria || ''}
+                    </div>
+                  ))
+                ) : (
+                  <div className="search-item">Nenhum produto encontrado</div>
+                )}
+              </div>
+            )}
 
             {/* NAVEGAÇÃO DO HEADER */}
             <nav className="navigation pt-1">
               <ul className="nav-list">
                 <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
-                <li><Link to="/meuspedidos"onClick={() => navigate("/meuspedidos")}>Meus pedidos</Link></li>
+                <li><Link to="/meuspedidos" onClick={() => navigate("/meuspedidos")}>Meus pedidos</Link></li>
                 <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
-                <li><Link to="/sobrenos"onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
-                <li><Link to="/promocoes"onClick={() => navigate("/promocoes")}>Promoções</Link></li>
-                <li><Link to="/faq"onClick={() => navigate("/faq")}>FAQ</Link></li>
+                <li><Link to="/sobrenos" onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
+                <li><Link to="/promocoes" onClick={() => navigate("/promocoes")}>Promoções</Link></li>
+                <li><Link to="/faq" onClick={() => navigate("/faq")}>FAQ</Link></li>
               </ul>
             </nav>
           </div>
@@ -63,7 +102,7 @@ function Header() {
           {/* ICONES */}
           <div className="icon-container align-self-center">
             <FaShoppingCart className="icon" onClick={() => navigate("/carrinho")} />
-            <FaHeart className="icon" onClick={() => navigate("/favoritos")}/>
+            <FaHeart className="icon" onClick={() => navigate("/favoritos")} />
             <button className='btn-iconuser' onClick={() => navigate("/login")}>
               <FaUser className="icon" />
             </button>
