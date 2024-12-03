@@ -4,21 +4,31 @@ import InputMask from 'react-input-mask';
 import './FinalizaCompra.css';
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
+import api from '../../services/api';
 
 function Finalizar() {
-  const [formData, setFormData] = useState({
-    email: '',
+
+  const [usuarioData, setUsuarioData] = useState({
     nome: '',
+    email: '',
     telefone: '',
     cpf: '',
-    numeroRua: '',
-    endereco: '',
-    complemento: '',
-    cep: '',
-    bairro: '',
-    cidade: '',
-    estado: '',
     datanasc: '',
+  });
+
+  const handleUsuarioInputChange = (e) => {
+    const { name, value } = e.target;
+    setUsuarioData({ ...usuarioData, [name]: value });
+  };
+
+  const [enderecoData, setEnderecoData] = useState({
+    cep: '',
+    cidade: '',
+    uf: '',
+    logradouro: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
   });
 
   const [compraConcluida, setCompraConcluida] = useState(false);
@@ -31,60 +41,84 @@ function Finalizar() {
     const usuario = localStorage.getItem('usuario');
     if (usuario) {
       const usuarioDados = JSON.parse(usuario);
-      setFormData({
+      setUsuarioData((prevData) => ({
+        ...prevData,
+        idcli: usuarioDados.idcli,
         email: usuarioDados.email || '',
         nome: usuarioDados.nome || '',
         telefone: usuarioDados.telefone || '',
+        senha: usuarioDados.senha,
         cpf: usuarioDados.cpf || '',
-        numeroRua: usuarioDados.numeroRua || '',
-        endereco: usuarioDados.endereco || '',
-        complemento: usuarioDados.complemento || '',
-        cep: usuarioDados.cep || '',
-        bairro: usuarioDados.bairro || '',
-        cidade: usuarioDados.cidade || '',
-        estado: usuarioDados.estado || '',
         datanasc: usuarioDados.datanasc || '',
-      });
+      }));
     }
 
-    // Recupera os produtos do carrinho
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    setProdutosCarrinho(carrinho);
+    const endereco = localStorage.getItem('endereco');
+    if (endereco) {
+      const enderecoDados = JSON.parse(endereco);
+      setEnderecoData((prevData) => ({
+        ...prevData,
+        idcli: enderecoDados.idcli,
+        cep: enderecoDados.cep || '',
+        cidade: enderecoDados.cidade || '',
+        uf: enderecoDados.uf || '',
+        logradouro: enderecoDados.logradouro || '',
+        numero: enderecoDados.numero || '',
+        complemento: enderecoDados.complemento || '',
+        bairro: enderecoDados.bairro || '',
+      }));
+    }
+     // Recupera os produtos do carrinho
+     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+     setProdutosCarrinho(carrinho);
   }, []);
 
   // Função de validação para CPF e telefone
   const validateCPF = (cpf) => {
     return cpf.length === 14; // Formato 000.000.000-00
   };
+  const validatetelefone = (telefone) => {
+    return telefone.length === 15; // Formato (00) 00000-0000
+  };
 
-  const salvarAlteracao = () => {
-    // Salva os dados atualizados no localStorage
-    localStorage.setItem('usuario', JSON.stringify(formData));
-    alert('Alterações salvas com sucesso!');
+  async function atualizaUsuario() {
+    try {
+      console.log('usuariodata:', usuarioData);
+      await api.post('usuario/atualizar', usuarioData);
+      localStorage.setItem('usuario', JSON.stringify(usuarioData));
+
+    } catch (erro) {
+      console.log('Erro ao fazer login:', erro.response ? erro.response.data : erro.message);
+    }
+  }
+
+  const handleEnderecoInputChange = (e) => {
+    const { name, value } = e.target;
+    setEnderecoData({ ...enderecoData, [name]: value });
   };
 
   const fetchGeolocation = async () => {
-    if (formData.cep) {
+    if (enderecoData.cep) {
       try {
-        const response = await fetch(`https://viacep.com.br/ws/${formData.cep}/json/`);
+        const response = await fetch(`https://viacep.com.br/ws/${enderecoData.cep}/json/`);
         const data = await response.json();
 
         if (!data.erro) {
-          setFormData((prevData) => ({
+          setEnderecoData((prevData) => ({
             ...prevData,
-            endereco: data.logradouro || prevData.endereco,
+            logradouro: data.logradouro || prevData.logradouro,
             bairro: data.bairro || prevData.bairro,
             cidade: data.localidade || prevData.cidade,
-            estado: data.uf || prevData.estado,
+            uf: data.uf || prevData.uf,
           }));
         } else {
           alert('CEP inválido! Por favor, insira um CEP correto.');
-          setFormData((prevData) => ({
+          setEnderecoData((prevData) => ({
             ...prevData,
-            endereco: '',
+            logradouro: '',
             bairro: '',
             cidade: '',
-            estado: '',
+            uf: '',
           }));
         }
       } catch (error) {
@@ -93,11 +127,26 @@ function Finalizar() {
     }
   };
 
+  async function atualizaEndereco() {
+    try {
+      const endereco = localStorage.getItem('endereco');
+      console.log('enderecoData:', enderecoData);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+      if (endereco) {
+        await api.post('endereco/atualizar', enderecoData);
+        localStorage.setItem('endereco', JSON.stringify(enderecoData));
+      } else {
+        let endData = enderecoData;
+        endData.idcli = usuarioData.idcli;
+
+        const resposta = await api.post('endereco/cadastrar', endData);
+        localStorage.setItem('endereco', JSON.stringify(resposta.data));
+      }
+
+    } catch (erro) {
+      console.log('Erro atualizar/cadastrar endereco:', erro.response ? erro.response.data : erro.message);
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -131,20 +180,18 @@ function Finalizar() {
       <h2 className="title-top pt-4 pb-3">Finalizar compra</h2>
       
       <div className="checkout-container">
-
-
         <div className="row">
           {/* Card Informações Pessoais */}
           <div className="col-md-4 mb-4">
             <div className="card p-3 ">
               <h4 className='text-center'>Informações Pessoais</h4>
-              <form onSubmit={handleSubmit} className="checkout-form">
+              <form className="checkout-form">
                 <input
                   type="text"
                   name="nome"
                   placeholder="Nome"
-                  value={formData.nome}
-                  onChange={handleInputChange}
+                  value={usuarioData.nome}
+                  onChange={handleUsuarioInputChange}
                   className="form-input"
                   required
                 />
@@ -152,117 +199,123 @@ function Finalizar() {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
+                  value={usuarioData.email}
+                  onChange={handleUsuarioInputChange}
                   className="form-input"
                   required
                 />
                 <InputMask
                   mask="(99) 99999-9999"
-                  value={formData.telefone}
-                  onChange={handleInputChange}
+                  value={usuarioData.telefone}
+                  onChange={handleUsuarioInputChange}
                 >
                   {() => (
                     <input
                       type="text"
                       name="telefone"
                       placeholder="Telefone"
-                      className="form-input"
-                      required
+                      className={`form-input ${!validatetelefone(usuarioData.telefone) ? 'invalid' : ''}`}
                     />
                   )}
                 </InputMask>
                 <InputMask
-                mask="999.999.999-99"
-                value={formData.cpf}
-                onChange={handleInputChange}
+                  mask="999.999.999-99"
+                  value={usuarioData.cpf}
+                  onChange={handleUsuarioInputChange}
+                  >
+                  {() => (
+                      <input
+                      type="text"
+                      name="cpf"
+                      placeholder="CPF"
+                      className={`info-inputt ${!validateCPF(usuarioData.cpf) ? 'invalid' : ''}`}
+                      />
+                  )}
+                </InputMask>
+                <InputMask
+                  mask="99/99/9999"
+                  value={usuarioData.datanasc}
+                  onChange={handleUsuarioInputChange}
                 >
-                {() => (
+                  {() => (
                     <input
-                    type="text"
-                    name="cpf"
-                    placeholder="CPF"
-                    className={`info-inputt ${!validateCPF(formData.cpf) ? 'invalid' : ''}`}
+                      type="text"
+                      name="datanasc"
+                      placeholder="Data de Nascimento"
+                      className="info-inputt"
                     />
-                )}
-        </InputMask>
-        <InputMask
-          mask="99/99/9999"
-          value={formData.datanasc}
-          onChange={handleInputChange}
-        >
-          {() => (
-            <input
-              type="text"
-              name="datanasc"
-              placeholder="Data de Nascimento"
-              className="info-inputt"
-            />
-          )}
-        </InputMask>
-        <input
-          type="text"
-          name="cep"
-          placeholder="CEP"
-          value={formData.cep}
-          onChange={handleInputChange}
-          onBlur={fetchGeolocation}
-          className="info-inputt"
-        />
-        <input
-          type="text"
-          name="endereco"
-          placeholder="Rua"
-          value={formData.endereco}
-          onChange={handleInputChange}
-          className="info-inputt"
-        />
-        <input
-          type="text"
-          name="numeroRua"
-          placeholder="Número"
-          value={formData.numeroRua}
-          onChange={handleInputChange}
-          className="info-inputt"
-        />
-        <input
-          type="text"
-          name="complemento"
-          placeholder="Complemento (opcional)"
-          value={formData.complemento}
-          onChange={handleInputChange}
-          className="info-inputt"
-        />
-        <input
-          type="text"
-          name="bairro"
-          placeholder="Bairro"
-          value={formData.bairro}
-          onChange={handleInputChange}
-          className="info-inputt"
-        />
-        <input
-          type="text"
-          name="cidade"
-          placeholder="Cidade"
-          value={formData.cidade}
-          onChange={handleInputChange}
-          className="info-inputt"
-        />
-        <input
-          type="text"
-          name="estado"
-          placeholder="Estado"
-          value={formData.estado}
-          onChange={handleInputChange}
-          className="info-inputt"
-        />
-
-        <button className="save-button mt-3"onClick={(e) => {e.preventDefault();salvarAlteracao();}}>Salvar Alterações</button>
+                  )}
+                </InputMask>
+                <input
+                  type="text"
+                  name="cep"
+                  placeholder="CEP"
+                  value={enderecoData.cep}
+                  onChange={handleEnderecoInputChange}
+                  onBlur={fetchGeolocation}
+                  className="info-inputt"
+                />
+                <input
+                  type="text"
+                  name="logradouro"
+                  placeholder="Rua"
+                  value={enderecoData.logradouro}
+                  onChange={handleEnderecoInputChange}
+                  className="info-inputt"
+                />
+                <input
+                  type="text"
+                  name="numero"
+                  placeholder="Número"
+                  value={enderecoData.numero}
+                  onChange={handleEnderecoInputChange}
+                  className="info-inputt"
+                />
+                <input
+                  type="text"
+                  name="complemento"
+                  placeholder="Complemento (opcional)"
+                  value={enderecoData.complemento}
+                  onChange={handleEnderecoInputChange}
+                  className="info-inputt"
+                />
+                <input
+                  type="text"
+                  name="bairro"
+                  placeholder="Bairro"
+                  value={enderecoData.bairro}
+                  onChange={handleEnderecoInputChange}
+                  className="info-inputt"
+                />
+                <input
+                  type="text"
+                  name="cidade"
+                  placeholder="Cidade"
+                  value={enderecoData.cidade}
+                  onChange={handleEnderecoInputChange}
+                  className="info-inputt"
+                />
+                <input
+                  type="text"
+                  name="uf"
+                  placeholder="Estado"
+                  value={enderecoData.uf}
+                  onChange={handleEnderecoInputChange}
+                  className="info-inputt"
+                />
+                <button className="save-button mt-3"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    atualizaUsuario();
+                    atualizaEndereco();
+                  }}
+                  >
+                  Salvar Alterações
+                </button>
               </form>
             </div>
           </div>
-
+          
           {/* Card Forma de Pagamento */}
           <div className="col-md-4 mb-4">
             <div className="card p-3">
@@ -289,7 +342,7 @@ function Finalizar() {
                 ))}
                 <h5>Total: R$ {calcularTotal().toFixed(2).replace('.', ',')}</h5>
               </div>
-              <button type="submit" className="submit-button mt-3">Concluir Compra</button>
+              <button className="submit-button mt-3" onClick={handleSubmit}>Concluir Compra</button>
             </div>
           </div>
         </div>
