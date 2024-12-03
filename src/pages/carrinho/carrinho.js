@@ -23,7 +23,7 @@ const Carrinho = () => {
 
   const calcularTotal = (produtos) => {
     const total = produtos.reduce((acc, produto) => {
-      const precoComDesconto = produto.preco * (1 - produto.desconto);
+      const precoComDesconto = produto.valor * (1 - produto.desconto);
       return acc + precoComDesconto * produto.quantidade;
     }, 0);
     setTotalCompra(total);
@@ -31,7 +31,7 @@ const Carrinho = () => {
 
   const alterarQuantidade = (produtoId, operacao) => {
     const novosProdutos = carrinho.map((produto) => {
-      if (produto.id === produtoId) {
+      if (produto.idprod === produtoId) {
         const novaQuantidade = operacao === 'incrementar'
           ? produto.quantidade + 1
           : produto.quantidade > 1
@@ -48,7 +48,7 @@ const Carrinho = () => {
   };
 
   const removerProduto = (produtoId) => {
-    const novosProdutos = carrinho.filter((produto) => produto.id !== produtoId);
+    const novosProdutos = carrinho.filter((produto) => produto.idprod !== produtoId);
     setCarrinho(novosProdutos);
     localStorage.setItem('carrinho', JSON.stringify(novosProdutos));
     calcularTotal(novosProdutos);
@@ -78,20 +78,20 @@ const Carrinho = () => {
                 <p className="text-green">{produto.nome}</p>
               </div>
               <div className="col-md-2">
-                <p className="text-green">R$ {Number(produto.preco * (1 - produto.desconto)).toFixed(2).replace('.', ',')}</p>
+                <p className="text-green">R$ {Number(produto.valor * (1 - produto.desconto)).toFixed(2).replace('.', ',')}</p>
               </div>
               <div className="col-md-2">
                 <div className="d-flex justify-content-center align-items-center">
                   <button
                     className="btn btn-sm btn-secondary me-2"
-                    onClick={() => alterarQuantidade(produto.id, 'decrementar')}
+                    onClick={() => alterarQuantidade(produto.idprod, 'decrementar')}
                   >
                     -
                   </button>
                   <p className="text-green mb-0">{produto.quantidade}</p>
                   <button
                     className="btn btn-sm btn-secondary ms-2"
-                    onClick={() => alterarQuantidade(produto.id, 'incrementar')}
+                    onClick={() => alterarQuantidade(produto.idprod, 'incrementar')}
                   >
                     +
                   </button>
@@ -99,13 +99,13 @@ const Carrinho = () => {
               </div>
               <div className="col-md-2">
                 <p className="text-green">
-                  R$ {(produto.preco * (1 - produto.desconto) * produto.quantidade).toFixed(2).replace('.', ',')}
+                  R$ {(produto.valor * (1 - produto.desconto) * produto.quantidade).toFixed(2).replace('.', ',')}
                 </p>
               </div>
               <div className="col-md-3">
                 <button 
                   className="btn btn-danger mt-3" 
-                  onClick={() => removerProduto(produto.id)}>
+                  onClick={() => removerProduto(produto.idprod)}>
                   Remover
                 </button>
               </div>

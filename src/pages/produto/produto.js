@@ -32,7 +32,7 @@ function Produto() {
   // Função para adicionar o produto ao carrinho
   const addToCart = () => {
     let cart = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const produtoNoCarrinho = cart.find(produto => produto.id === produtoInfo.id);
+    const produtoNoCarrinho = cart.find(produto => produto.idprod === produtoInfo.idprod);
 
     if (produtoNoCarrinho) {
       // Atualizar a quantidade do produto já existente
