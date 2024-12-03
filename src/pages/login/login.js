@@ -32,6 +32,10 @@ function Login() {
       console.log(resposta.data);
       localStorage.setItem('usuario', JSON.stringify(resposta.data));
 
+      const respostaEndereco = await api.get(`endereco/obter?Id=${resposta.data.idcli}`);
+      console.log(respostaEndereco.data);
+      localStorage.setItem('endereco', JSON.stringify(respostaEndereco.data));
+
       // Redireciona para a página de perfil
       Navigate('/perfil');
 
