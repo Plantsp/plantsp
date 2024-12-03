@@ -4,7 +4,7 @@ import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import { FaUndo, FaShieldAlt, FaTruck } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import { listaProdutos } from "../../data/produtos";
+import api from "../../services/api";
 import "./produto.css";
 
 function Produto() {
@@ -17,9 +17,16 @@ function Produto() {
     findProd(id);
   }, [id]);
 
-  function findProd(value) {
-    let prod = listaProdutos.find((produto) => produto.id === value);
-    setProdutoInfo(prod);
+  async function findProd(idProd) {
+    // let prod = listaProdutos.find((produto) => produto.id === value);
+    // setProdutoInfo(prod);
+    try {
+      const resposta = await api.get(`produto/obter?Id=${idProd}`);
+      setProdutoInfo(resposta.data);
+      console.log(resposta.data);
+    } catch (erro) {
+      console.log('Erro ao buscar todos produtos:', erro.response ? erro.response.data : erro.message);
+    }
   }
 
   // Função para adicionar o produto ao carrinho
@@ -60,9 +67,9 @@ function Produto() {
             </Col>
             <Col md={6} className="info_prod">
               <h2>{produtoInfo.nome}</h2>
-              <p className="descricao">{produtoInfo.descricao}</p>
-              <p className="preco">Preço: R$ {Number(produtoInfo.preco).toFixed(2).replace(".", ",")}</p>
-              <p className="desc">Com Desconto: R$ {(produtoInfo.preco * (1 - produtoInfo.desconto)).toFixed(2).replace(".", ",")}</p>
+              <p className="descricao">{produtoInfo.descricaodet}</p>
+              <p className="preco">Preço: R$ {Number(produtoInfo.valor).toFixed(2).replace(".", ",")}</p>
+              <p className="desc">Com Desconto: R$ {(produtoInfo.valor * (1 - produtoInfo.desconto)).toFixed(2).replace(".", ",")}</p>
 
               <h3>Quantidade:</h3>
               <div className="div_btn_quant d-flex align-items-center">

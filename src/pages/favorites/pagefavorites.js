@@ -13,11 +13,11 @@ function FavoritesPage() {
   }, []);
 
   const toggleFavorite = (produto) => {
-    const isFavorite = favorites.find(fav => fav.id === produto.id);
+    const isFavorite = favorites.find(fav => fav.idprod === produto.idprod);
 
     if (isFavorite) {
       // Se já estiver favoritado, remove
-      const updatedFavorites = favorites.filter(fav => fav.id !== produto.id);
+      const updatedFavorites = favorites.filter(fav => fav.idprod !== produto.idprod);
       setFavorites(updatedFavorites);
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     } else {
@@ -37,32 +37,32 @@ function FavoritesPage() {
         {favorites.length > 0 ? (
           <div className="favorites-container">
             {favorites.map(produto => (
-              <div key={produto.id} className="favorite-card">
+              <div key={produto.idprod} className="favorite-card">
                 <img src={process.env.PUBLIC_URL + produto.imagem} alt="planta" className="favorite-card-image" />
                 <div className="favorite-card-body">
                   <div className="favorite-card-header">
                     <h5 className="favorite-card-title">{produto.nome}</h5>
                     <div className="favorite-icon" onClick={() => toggleFavorite(produto)}>
-                      {favorites.find(fav => fav.id === produto.id) ? (
+                      {favorites.find(fav => fav.idprod === produto.idprod) ? (
                         <FaHeart color="red" />
                       ) : (
                         <FaRegHeart />
                       )}
                     </div>
                   </div>
-                  <p className="favorite-card-price">R$ {produto.preco.toFixed(2).replace('.', ',')}</p>
-                  <p className="favorite-card-desc">R$ {(produto.preco * (1 - produto.desconto)).toFixed(2).replace(".", ",")}</p>
+                  <p className="favorite-card-price">R$ {produto.valor.toFixed(2).replace('.', ',')}</p>
+                  <p className="favorite-card-desc">R$ {(produto.valor * (1 - produto.desconto)).toFixed(2).replace(".", ",")}</p>
                   
                   <ReactStars
-                  count={5}
-                  halfIcon={<i className="fa fa-star-half-alt"></i>}
-                  fullIcon={<i className="fa fa-star"></i>}
-                  isHalf={true}
-                  edit={false}
-                  size={24}
-                  value={produto.avaliacao}
-                  activeColor="#ffd700"
-        />
+                    count={5}
+                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                    fullIcon={<i className="fa fa-star"></i>}
+                    isHalf={true}
+                    edit={false}
+                    size={24}
+                    value={produto.avaliacao}
+                    activeColor="#ffd700"
+                  />
                 </div>
               </div>
             ))}

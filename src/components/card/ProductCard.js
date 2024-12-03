@@ -19,7 +19,7 @@ function ProductCard({ produto }) {
     if (updatedFavoriteStatus) {
       favorites.push(produto);
     } else {
-      const index = favorites.findIndex(fav => fav.id === produto.id);
+      const index = favorites.findIndex(fav => fav.idprod === produto.idprod);
       if (index > -1) favorites.splice(index, 1);
     }
 
@@ -28,8 +28,8 @@ function ProductCard({ produto }) {
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setIsFavorited(favorites.some(fav => fav.id === produto.id));
-  }, [produto.id]);
+    setIsFavorited(favorites.some(fav => fav.idprod === produto.idprod));
+  }, [produto.idprod]);
 
   return (
     <div 
@@ -38,7 +38,7 @@ function ProductCard({ produto }) {
       onClick={() => {
         window.scrollTo(0, 0);
         console.log("produto clicado: ", produto);
-        navigate(`/produto/${produto.id}`);
+        navigate(`/produto/${produto.idprod}`);
       }}
     > 
       {/* Balão de Desconto */}
@@ -66,12 +66,12 @@ function ProductCard({ produto }) {
 
       <div className="card-body p-2">
         <h5 className="card-title text-truncate">{produto.nome}</h5>
-        <p className="card-text">R${produto.preco.toFixed(2).replace(".", ",")}</p>
+        <p className="card-text">R${produto.valor.toFixed(2).replace(".", ",")}</p>
 
         {/* Exibe o preço com desconto */}
         {produto.desconto > 0 && (
           <p className="desc">
-            R$ {(produto.preco * (1 - produto.desconto)).toFixed(2).replace(".", ",")}
+            R$ {(produto.valor * (1 - produto.desconto)).toFixed(2).replace(".", ",")}
           </p>
         )}
 

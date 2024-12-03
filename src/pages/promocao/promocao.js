@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
-import { listaProdutos } from '../../data/produtos';
+import api from '../../services/api';
 import ProductCard from '../../components/card/ProductCard';
 
 function Promocao() {
-  // Define o estado products com listaProdutos como valor inicial
-  const [products] = useState(listaProdutos);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    todosProdutosPromocao();
+  }, []);
+
+  async function todosProdutosPromocao() {
+    try {
+      const resposta = await api.get('produto/obter/todos');
+      setProducts(resposta.data);
+      console.log(resposta.data);
+    } catch (erro) {
+      console.log('Erro ao buscar todos produtos:', erro.response ? erro.response.data : erro.message);
+    }
+  }
 
   return (
     <div>
