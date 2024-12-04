@@ -33,7 +33,7 @@ function Login() {
       localStorage.setItem('usuario', JSON.stringify(resposta.data));
 
       const respostaEndereco = await api.get(`endereco/obter?Id=${resposta.data.idcli}`);
-      if(respostaEndereco.data.idcli == resposta.data.idcli){
+      if(respostaEndereco.data.idcli === resposta.data.idcli){
         console.log(respostaEndereco.data);
         localStorage.setItem('endereco', JSON.stringify(respostaEndereco.data));
       }
