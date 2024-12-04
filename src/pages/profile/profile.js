@@ -170,12 +170,10 @@ function Profile() {
   }
 
   const Sair = () => {
-    localStorage.removeItem('usuario'); // Remove o item do localStorage
-    localStorage.removeItem('endereco');
+    localStorage.clear();
     navigate('/');
     window.scrollTo(0, 0);
   };
-
 
   return (
   <div>
