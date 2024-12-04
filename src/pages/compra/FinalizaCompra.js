@@ -5,7 +5,6 @@ import './FinalizaCompra.css';
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import api from '../../services/api';
-import { FaCreditCard, FaQrcode, FaBarcode } from "react-icons/fa";
 
 function Finalizar() {
   const [formaPagamento, setFormaPagamento] = useState('');
