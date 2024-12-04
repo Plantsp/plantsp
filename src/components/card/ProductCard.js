@@ -3,6 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import "./ProductCard.css";
+import api from '../../services/api';
 
 function ProductCard({ produto }) {
   const navigate = useNavigate(); // Hook para navegação
@@ -10,25 +11,33 @@ function ProductCard({ produto }) {
   const img = process.env.PUBLIC_URL + produto.imagem;
 
   // Função para alternar o estado de favorito
-  const toggleFavorite = () => {
+  const toggleFavorite = async () => {
     const updatedFavoriteStatus = !isFavorited;
     setIsFavorited(updatedFavoriteStatus);
     
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const favorites = JSON.parse(localStorage.getItem('favoritos') || '[]');
     
     if (updatedFavoriteStatus) {
-      favorites.push(produto);
+      favorites.itensfav.push(produto);
     } else {
-      const index = favorites.findIndex(fav => fav.idprod === produto.idprod);
-      if (index > -1) favorites.splice(index, 1);
+      const index = favorites.itensfav.findIndex(fav => fav.idprod === produto.idprod);
+      if (index > -1) favorites.itensfav.splice(index, 1);
     }
 
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem('favoritos', JSON.stringify(favorites));
+
+    try {
+      await api.post('favoritos/atualizar', favorites);
+    } catch (erro) {
+      console.log('Erro atualizar favoritos:', erro.response ? erro.response.data : erro.message);
+    }
   };
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setIsFavorited(favorites.some(fav => fav.idprod === produto.idprod));
+    const favorites = JSON.parse(localStorage.getItem('favoritos') || '[]');
+    if(favorites && favorites.itensfav){
+      setIsFavorited(favorites.itensfav.some(fav => fav.idprod === produto.idprod));
+    }
   }, [produto.idprod]);
 
   return (
