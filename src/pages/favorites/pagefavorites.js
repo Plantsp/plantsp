@@ -3,28 +3,38 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importando ícones de c
 import "./pagefavorite.css";
 import Header from '../../components/header/headerdesktop';
 import ReactStars from "react-rating-stars-component";
+import api from '../../services/api';
 
 function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
+  const [favoritesObj, setFavoritesObj] = useState({});
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setFavorites(storedFavorites);
+    const storedFavorites = JSON.parse(localStorage.getItem('favoritos') || '[]');
+    setFavoritesObj(storedFavorites);
+    setFavorites(storedFavorites.itensfav);
   }, []);
 
-  const toggleFavorite = (produto) => {
+  const toggleFavorite = async (produto) => {
     const isFavorite = favorites.find(fav => fav.idprod === produto.idprod);
 
     if (isFavorite) {
-      // Se já estiver favoritado, remove
       const updatedFavorites = favorites.filter(fav => fav.idprod !== produto.idprod);
       setFavorites(updatedFavorites);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    } else {
-      // Se não estiver favoritado, adiciona
-      const updatedFavorites = [...favorites, produto];
-      setFavorites(updatedFavorites);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      
+      try {
+        let body = {
+          idcli: favoritesObj.idcli,
+          idfav: favoritesObj.idfav,
+          itensfav: updatedFavorites
+        }
+       
+        await api.post('favoritos/atualizar', body);
+        localStorage.setItem('favoritos', JSON.stringify(body));
+
+      } catch (erro) {
+        console.log('Erro atualizar favoritos:', erro.response ? erro.response.data : erro.message);
+      }
     }
   };
 
