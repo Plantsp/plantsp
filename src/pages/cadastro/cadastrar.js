@@ -24,6 +24,14 @@ function Cadastrar() {
         const resposta = await api.post('usuario/cadastrar', body);
         console.log(resposta.data);
         localStorage.setItem('usuario', JSON.stringify(resposta.data));
+
+        let bodyFav = {
+          idcli: resposta.data.idcli,
+          itensfav: []
+        }
+        const respFav = await api.post('favoritos/cadastrar', bodyFav);
+        console.log(respFav.data);
+        localStorage.setItem('favoritos', JSON.stringify(respFav.data));
         
         // Redireciona para a página de perfil
         Navigate('/perfil');
