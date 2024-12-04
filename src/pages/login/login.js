@@ -33,8 +33,14 @@ function Login() {
       localStorage.setItem('usuario', JSON.stringify(resposta.data));
 
       const respostaEndereco = await api.get(`endereco/obter?Id=${resposta.data.idcli}`);
-      console.log(respostaEndereco.data);
-      localStorage.setItem('endereco', JSON.stringify(respostaEndereco.data));
+      if(respostaEndereco.data.idcli == resposta.data.idcli){
+        console.log(respostaEndereco.data);
+        localStorage.setItem('endereco', JSON.stringify(respostaEndereco.data));
+      }
+      
+      const respFav = await api.get(`favoritos/obter?IdCli=${resposta.data.idcli}`);
+      console.log(respFav.data);
+      localStorage.setItem('favoritos', JSON.stringify(respFav.data));
 
       // Redireciona para a página de perfil
       Navigate('/perfil');
