@@ -5,8 +5,11 @@ import './FinalizaCompra.css';
 import Header from '../../components/header/headerdesktop';
 import Footer from '../../components/footer/footer';
 import api from '../../services/api';
+import { FaCreditCard, FaQrcode, FaBarcode } from "react-icons/fa";
 
 function Finalizar() {
+  const [formaPagamento, setFormaPagamento] = useState('');
+
 
   const [usuarioData, setUsuarioData] = useState({
     nome: '',
@@ -169,10 +172,12 @@ function Finalizar() {
 
   const calcularTotal = () => {
     return produtosCarrinho.reduce((acc, produto) => {
-      const precoComDesconto = produto.preco * (1 - produto.desconto);
+      const precoComDesconto = produto.valor * (1 - produto.desconto);
       return acc + precoComDesconto * produto.quantidade;
     }, 0);
   };
+
+  
 
   return (
     <div>
@@ -320,13 +325,50 @@ function Finalizar() {
           <div className="col-md-4 mb-4">
             <div className="card p-3">
               <h4 className='text-center'>Forma de Pagamento</h4>
-              <select name="pagamento" className="form-input" required>
+              <select
+                name="pagamento"
+                className="form-input"
+                required
+                onChange={(e) => setFormaPagamento(e.target.value)}
+              >
+                <option value="">Selecione uma forma de pagamento</option>
                 <option value="cartao">Cartão de Crédito</option>
                 <option value="boleto">Boleto Bancário</option>
                 <option value="pix">Pix</option>
               </select>
+
+              {/* Exibição dinâmica do ícone ou representação */}
+              <div className="pagamento-icone mt-3 text-center">
+              {formaPagamento === 'cartao' && (
+                <div>
+                  <img 
+                  src="/assets/img/cartao.png" 
+                  alt="Código de Barras" 
+                  className="img-fluid mt-2" 
+                />
+                </div>
+              )}
+              {formaPagamento === 'boleto' && (
+              <div>
+                <img 
+                  src="/assets/img/barras.png" 
+                  alt="Código de Barras" 
+                  className="img-fluid mt-2" 
+                />
+              </div>
+              )}
+              {formaPagamento === 'pix' && (
+                <div>
+                <img 
+                  src="/assets/img/qrcode.png" 
+                  alt="Código de Barras" 
+                  className="img-fluid mt-2" 
+                />
+              </div>
+              )}
             </div>
           </div>
+        </div>
 
           {/* Card Produtos */}
           <div className="col-md-4">
@@ -336,7 +378,7 @@ function Finalizar() {
                 {produtosCarrinho.map((produto, index) => (
                   <div key={index} className="product-info">
                     <p>{produto.nome}</p>
-                    <p>R$ {produto.preco}</p>
+                    <p>R$ {produto.valor}</p>
                     <p>Quantidade: {produto.quantidade}</p>
                   </div>
                 ))}

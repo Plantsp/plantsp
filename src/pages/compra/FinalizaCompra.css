@@ -152,6 +152,16 @@ body {
       padding: 10px;
     }
 
+    .pagamento-icone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .pagamento-icone img {
+      max-width: 100%;
+      height: auto;
+    }
     
   }
   
