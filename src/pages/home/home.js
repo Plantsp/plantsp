@@ -22,7 +22,6 @@ function Home() {
     try {
       const resposta = await api.get('produto/obter/todos');
       setProducts(resposta.data);
-      console.log(resposta.data);
     } catch (erro) {
       console.log('Erro ao buscar todos produtos:', erro.response ? erro.response.data : erro.message);
     }
