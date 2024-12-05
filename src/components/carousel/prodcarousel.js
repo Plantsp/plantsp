@@ -14,7 +14,7 @@ function ProdCarousel({products}) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     return (
-        <div className='d-flex align-items-center justify-content-between'>
+        <div className='d-none d-sm-none d-md-none d-lg-flex d-lg-block align-items-center justify-content-between'>
             <FaChevronLeft className='btn-prev ' size={48} style={{cursor: currentIndex > 0 ? "pointer" : "default", opacity: currentIndex > 0 ? 1 : 0 }} color={"var(--verde-escuro)"}/>
 
             <Swiper 
@@ -31,8 +31,8 @@ function ProdCarousel({products}) {
                 {
                     products.map((produto, index) => {
                         return (
-                            <SwiperSlide className="d-flex align-items-stretch text-left">
-                                <ProductCard produto={produto} key={index}/>
+                            <SwiperSlide key={index} className="d-flex align-items-stretch text-left">
+                                <ProductCard produto={produto} />
                             </SwiperSlide>
                         )
                     })

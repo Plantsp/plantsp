@@ -7,7 +7,7 @@ function SpecialOffer() {
   const navigate = useNavigate();
   return (
     
-    <div className="offer-container d-none d-sm-none d-md-flex d-md-block">
+    <div className="offer-container d-none d-sm-none d-md-none d-lg-flex d-lg-block">
       {/* Lado esquerdo com as informações */}
       <div className="offer-text">
         <h1>Oferta <br/><span className="especial">ESPECIAL</span></h1>

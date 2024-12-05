@@ -50,8 +50,8 @@ function Home() {
           {
             products.map((produto, index) => {
               return (
-                <Col className="d-flex align-items-stretch py-3" xs={12} sm={12} md={4} lg={4}>
-                  <ProductCard produto={produto} key={index}/>
+                <Col key={index} className="d-flex align-items-stretch py-3" xs={12} sm={12} md={4} lg={4}>
+                  <ProductCard produto={produto} />
                 </Col>
               )
             })

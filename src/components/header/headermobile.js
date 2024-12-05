@@ -2,7 +2,7 @@ import { useState,  useEffect } from 'react';
 import { FaBars, FaSearch, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
-import { listaProdutos } from "../../data/produtos"; // Ajuste o caminho conforme necessário.
+import api from '../../services/api';
 
 const logo = process.env.PUBLIC_URL + '/assets/img/logo.png';
 
@@ -20,9 +20,13 @@ function HeaderMobile() {
     if (searchTerm.trim() === '') {
       setFilteredProdutos([]);
     } else {
-      const resultados = listaProdutos.filter((produto) =>
-        produto.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (produto.marca && produto.marca.toLowerCase().includes(searchTerm.toLowerCase()))
+      todosProdutos();
+    }
+
+    async function todosProdutos() {
+      const listaProdutos = await api.get("produto/obter/todos");
+      const resultados = listaProdutos.data.filter((produto) => 
+        produto.nome.toString().toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredProdutos(resultados);
     }
@@ -64,15 +68,15 @@ function HeaderMobile() {
                 {filteredProdutos.length > 0 ? (
                   filteredProdutos.map((produto) => (
                     <div
-                    key={produto.id}
-                    className="search-item"
-                    onClick={() => {
-                      setSearchTerm(''); // Limpa o campo de busca
-                      setFilteredProdutos([]); // Limpa os resultados
-                      navigate(`/produto/${produto.id}`); // Navega para a página do produto
-                    }}
-                    style={{ cursor: 'pointer' }}
-                  >
+                    key={produto.idprod}
+                      className="search-item"
+                      onClick={() => {
+                        setSearchTerm(''); // Limpa o campo de busca
+                        setFilteredProdutos([]); // Limpa os resultados
+                        navigate(`/produto/${produto.idprod}`); // Navega para a página do produto
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
                     {produto.nome} - {produto.categoria || ''}
                     </div>
                   ))

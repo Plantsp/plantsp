@@ -1,6 +1,6 @@
 export const listaProdutos = [
   {
-    "id":"Ed4ock4C",
+    "id": 26,
     "nome": "Planta Suculenta",
     "descricao": "Suculenta decorativa de fácil manutenção.",
     "preco": 15.99,
@@ -12,7 +12,7 @@ export const listaProdutos = [
     
   },
   {
-    "id":"xm1La0CO",
+    "id":25,
     "nome": "Kit de Vasos de Cerâmica",
     "descricao": "Conjunto de 3 vasos de cerâmica para plantas pequenas.",
     "preco": 29.99,
@@ -23,7 +23,7 @@ export const listaProdutos = [
     "imagem": "https://t3.ftcdn.net/jpg/08/37/82/28/360_F_837822837_a58enLAK809QfrPqpZcLRc5MKDufkOZs.jpg"
   },
   {
-    "id":"Wo0rmC8E",
+    "id":24,
     "nome": "Adubo Orgânico",
     "descricao": "Adubo 100% orgânico para todas as plantas.",
     "preco": 25.99,
@@ -34,7 +34,7 @@ export const listaProdutos = [
     "imagem": "https://img.freepik.com/fotos-gratis/vista-superior-de-maos-com-luvas-segurando-solo-e-planta-com-espaco-de-copia_23-2148814115.jpg?semt=ais_hybrid"
   },
   {
-    "id":"UpdjM1n1",
+    "id":23,
     "nome": "Regador de Metal",
     "descricao": "Regador resistente de metal com capacidade de 2 litros.",
     "preco": 24.99,
@@ -46,7 +46,7 @@ export const listaProdutos = [
     
   },
   {
-    "id":"LTSlQP3u",
+    "id":22,
     "nome": "Luvas de Jardinagem",
     "descricao": "Luvas confortáveis e resistentes para jardinagem.",
     "preco": 12.99,
@@ -57,7 +57,7 @@ export const listaProdutos = [
     "imagem": "https://img.freepik.com/fotos-gratis/planta-suculenta-potted-vivida-com-par-de-luvas-no-guardanapo-sobre-a-tabela-branca_23-2147844375.jpg"
   },
   {
-    "id":"PEU5XL2T",
+    "id":21,
     "nome": "Terra Vegetal",
     "descricao": "Terra vegetal de alta qualidade para plantio.",
     "preco": 12.99,
@@ -69,7 +69,7 @@ export const listaProdutos = [
     
   },
   {
-    "id":"A8qd4wsm",
+    "id":20,
     "nome": "Kit de Ferramentas para Bonsai",
     "descricao": "Conjunto de ferramentas específicas para cuidados com bonsai.",
     "preco": 34.99,
@@ -81,7 +81,7 @@ export const listaProdutos = [
     
   },
   {
-    "id":"m8fh6nSx",
+    "id":19,
     "nome": "Kit de Planta Cacto",
     "descricao": "Cacto de pequeno porte ideal para ambientes internos.",
     "preco": 24.99,
@@ -93,7 +93,7 @@ export const listaProdutos = [
     
   },
   {
-    "id":"ipJ4yECm",
+    "id":18,
     "nome": "Fertilizante Líquido",
     "descricao": "Fertilizante líquido para crescimento rápido das plantas.",
     "preco": 19.99,
@@ -104,7 +104,7 @@ export const listaProdutos = [
     "imagem": "https://img.freepik.com/premium-photo/roundup-is-postgrowth-herbicide-with-active-ingredient_1197797-244574.jpg"
   },
   {
-    "id":"blGk2fby",
+    "id":17,
     "nome": "Tesoura de Poda",
     "descricao": "Tesoura afiada para poda de plantas e flores.",
     "preco": 17.99,
@@ -115,7 +115,7 @@ export const listaProdutos = [
     "imagem": "https://rbsecure.com.br/wp-content/uploads/2023/02/WhatsApp-Image-2023-02-13-at-22.41.55-1024x682.jpeg"
   },
   {
-    "id":"hY2eZjvb",
+    "id":16,
     "nome": "Planta de Lavanda",
     "descricao": "Lavanda aromática para decoração e uso medicinal.",
     "preco": 16.99,
@@ -126,7 +126,7 @@ export const listaProdutos = [
     "imagem": "https://img.freepik.com/fotos-premium/a-alfazema-floresce-no-vaso-branco-com-fundo-da-parede-do-espaco-da-copia_25920-960.jpg?w=360"
   },
   {
-    "id":"xqY30QJo",
+    "id":15,
     "nome": "Sistema de Irrigação Automática",
     "descricao": "Sistema completo para irrigação automática do jardim.",
     "preco": 99.99,
@@ -137,7 +137,7 @@ export const listaProdutos = [
     "imagem": "https://ec11c0b4.rocketcdn.me/wp-content/uploads/2024/09/irrigation-blog3.jpg"
   },
   {
-    "id":"UGTjM0MB",
+    "id":14,
     "nome": "Estufa para Plantas",
     "descricao": "Mini estufa para cultivo de plantas em ambientes controlados.",
     "preco": 59.99,
@@ -148,7 +148,7 @@ export const listaProdutos = [
     "imagem": "https://img.freepik.com/fotos-gratis/jardim-em-garrafa-de-vidro_1339-3029.jpg?t=st=1733009037~exp=1733012637~hmac=d78f7a776266be0e5e8f5dbfb27e45253f8816aaf83afa1a31b247867cb0d8c3&w=740"
   },
   {
-    "id":"8BwVnBAh",
+    "id":13,
     "nome": "Sementes de Flores",
     "descricao": "Pacote com diversas sementes de flores coloridas.",
     "preco": 7.99,
@@ -159,7 +159,7 @@ export const listaProdutos = [
     "imagem": "https://images.tcdn.com.br/img/img_prod/350075/kit_sementes_de_flores_para_plantar_na_primavera_com_6_variedades_isla_17763_1_c302cb2e10d92ab249929fcd509f4f3b.png"
   },
   {
-    "id":"lVz1cJzI",
+    "id":12,
     "nome": "Kit de Mini-Horta",
     "descricao": "Kit completo para iniciar uma mini-horta em casa.",
     "preco": 24.99,
@@ -170,7 +170,7 @@ export const listaProdutos = [
     "imagem":"https://www.nattivusbrindes.com/uploads/product/d8ab7fceab2b13b560c10f98ffe5a56b.jpg"
   },
   {
-    "id":"xjx02PSN",
+    "id":11,
     "nome": "Planta de Alecrim",
     "descricao": "Alecrim fresco para uso culinário e decorativo.",
     "preco": 12.99,
@@ -181,7 +181,7 @@ export const listaProdutos = [
     "imagem":"https://img.freepik.com/premium-photo/rosemary-grows-pot_154293-6730.jpg?w=740"
   },
   {
-    "id":"kHrIVhNG",
+    "id":10,
     "nome": "Composto Orgânico",
     "descricao": "Composto orgânico de alta qualidade para jardinagem.",
     "preco": 22.99,
@@ -192,7 +192,7 @@ export const listaProdutos = [
     "imagem":"https://static.wixstatic.com/media/093c2e_5d7b8f9f1f3146528d7d84de0c376fb9~mv2.jpg/v1/fill/w_480,h_644,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/093c2e_5d7b8f9f1f3146528d7d84de0c376fb9~mv2.jpg"
   },
   {
-    "id":"yh0afkxV",
+    "id":9,
     "nome": "Planta de Orquídea",
     "descricao": "Orquídea exótica para decoração de interiores.",
     "preco": 29.99,
@@ -203,7 +203,7 @@ export const listaProdutos = [
     "imagem":"https://img.freepik.com/premium-photo/beautiful-blooming-orchid-jar-old-wooden-jewelry-box-white-table-near-beige-wall-space-text_495423-46077.jpg?w=740"
   },
   {
-    "id":"OtihDd03",
+    "id":8,
     "nome": "Kit de Ferramentas de Jardim",
     "descricao": "Conjunto de ferramentas essenciais para jardinagem.",
     "preco": 39.99,
@@ -214,7 +214,7 @@ export const listaProdutos = [
     "imagem":"https://img.irroba.com.br/filters:fill(fff):quality(80)/ritecaae/catalog/api/ritecaae_citelerp/6553b89538933.jpg"
   },
   {
-    "id":"GNDEmTdj",
+    "id":7,
     "nome": "Planta de Manjericão",
     "descricao": "Manjericão fresco para uso culinário.",
     "preco": 11.99,
@@ -234,7 +234,7 @@ export const listaProdutos = [
   // },
   {
     "id":"zWAxxICj",
-    "nome": "Vaso de Cerâmica",
+    "nome": 6,
     "descricao": "Vaso de cerâmica feito à mão, perfeito para plantas pequenas.",
     "preco": 20.99,
     "desconto": 0.15,
@@ -244,7 +244,7 @@ export const listaProdutos = [
     "imagem":"https://m.media-amazon.com/images/I/71iQbkQY90L._AC_UF894,1000_QL80_.jpg"
   },
   {
-    "id":"CJO7vc1S",
+    "id":5,
     "nome": "Fertilizante Orgânico",
     "descricao": "Fertilizante orgânico para promover o crescimento saudável das plantas.",
     "preco": 5.75,
@@ -255,7 +255,7 @@ export const listaProdutos = [
     "imagem":"https://bomcultivo.cdn.magazord.com.br/img/2021/05/produto/2859/fertilizante-substrato-organico-esterco-de-galinhas-plantio-organico-bom-cultivo.jpg?ims=fit-in/800x800/filters:fill(white)"
   },
   {
-    "id":"VGROrnXG",
+    "id":4,
     "nome": "Kit de Ferramentas para Jardinagem",
     "descricao": "Conjunto completo de ferramentas para todas as suas necessidades de jardinagem.",
     "preco": 45.99,
@@ -267,7 +267,7 @@ export const listaProdutos = [
   },
   {
     "id":"efmoQYOr",
-    "nome": "Semente de Girassol",
+    "nome": 3,
     "descricao": "Sementes de girassol de alta qualidade para cultivar em casa.",
     "preco": 17.99,
     "desconto": 0.07,
@@ -277,7 +277,7 @@ export const listaProdutos = [
     "imagem":"https://img.freepik.com/free-photo/black-sunflower-seeds-bowl-white-background-high-angle-view_176474-5185.jpg?t=st=1728075652~exp=1728079252~hmac=aa213a6933e9bc08ef5b5917742a0df22bbcf550589e67ef8885a5a483530e98&w=740"
 },
   {
-    "id":"AKQvpwjT",
+    "id":2,
     "nome": "Fertilizante Granulado",
     "descricao": "Fertilizante granulado de liberação lenta para todas as plantas.",
     "preco": 21.99,
@@ -288,7 +288,7 @@ export const listaProdutos = [
     "imagem":"https://www.adufertil.com.br/wp-content/uploads/2022/05/adubo-npk-preco-adufertil.jpg"
 },
   {
-    "id":"cazneSio",
+    "id": 1,
     "nome": "Fertilizante para Orquídeas",
     "descricao": "Fertilizante especialmente formulado para orquídeas.",
     "preco": 18.99,
