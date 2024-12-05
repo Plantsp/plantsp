@@ -23,15 +23,15 @@ const CardPedido = ({ pedido }) => {
     <div className="card-pedido w-100">
       <h3 className="pedido">Pedido #{pedido.idped}</h3>
 
-      <div className="detalhes-produto py-3">
+      <div className="detalhes-produto row py-3">
         {pedido.itenspedido.map((item, index) => (
-          <p className="det" key={index}>
+          <p className="det col-12" key={index}>
             {item.nomeprod} - {item.quantidade} unid. - {formatarValor(item.subtotal)}
           </p>
         ))}
       </div>
 
-      <p className="det">Comprado em: {formatarDataBr(pedido.datapedido)}</p>
+      <p className="det">Comprado em: {formatarDataBr((pedido.datapedido + "Z"))}</p>
       <p className="det">Forma de pagamento: {pedido.formapagamento}</p>
       <p className="det">Total da compra: {formatarValor(pedido.totalcompra)}</p>
     </div>
