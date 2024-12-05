@@ -8,7 +8,14 @@ import api from '../../services/api';
 
 function Finalizar() {
   const [formaPagamento, setFormaPagamento] = useState('');
+  const [compraConcluida, setCompraConcluida] = useState(false);
+  const [tempoDeCompra, setTempoDeCompra] = useState(3); // 7 segundos de progresso
+  const [produtosCarrinho, setProdutosCarrinho] = useState([]);
+  const [itensPedido, setItensPedido] = useState([]);
+  const brasilTime = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  const isoStringAtualBr = brasilTime.toISOString().slice(0, -1) + "Z";
 
+  const navigate = useNavigate();
 
   const [usuarioData, setUsuarioData] = useState({
     nome: '',
@@ -32,11 +39,6 @@ function Finalizar() {
     complemento: '',
     bairro: '',
   });
-
-  const [compraConcluida, setCompraConcluida] = useState(false);
-  const [tempoDeCompra, setTempoDeCompra] = useState(7); // 7 segundos de progresso
-  const [produtosCarrinho, setProdutosCarrinho] = useState([]);
-  const navigate = useNavigate();
 
   // Preenche o formulário com os dados do localStorage
   useEffect(() => {
@@ -70,15 +72,28 @@ function Finalizar() {
         bairro: enderecoDados.bairro || '',
       }));
     }
-     // Recupera os produtos do carrinho
-     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-     setProdutosCarrinho(carrinho);
+    
+    // Recupera os produtos do carrinho
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    setProdutosCarrinho(carrinho);
+    setItensPedido([]);
+    carrinho.forEach(produto => {
+      let itemPedido = {
+        IDPROD: produto.idprod,
+        NOMEPROD: produto.nome,
+        QUANTIDADE: produto.quantidade,
+        VALOR: (produto.valor * (1 - produto.desconto)),
+        SUBTOTAL: (produto.valor * (1 - produto.desconto)) * produto.quantidade
+      };
+      setItensPedido((itensAtuais) => [...itensAtuais, itemPedido]);
+    });
   }, []);
 
   // Função de validação para CPF e telefone
   const validateCPF = (cpf) => {
     return cpf.length === 14; // Formato 000.000.000-00
   };
+
   const validatetelefone = (telefone) => {
     return telefone.length === 15; // Formato (00) 00000-0000
   };
@@ -92,6 +107,15 @@ function Finalizar() {
     } catch (erro) {
       console.log('Erro ao fazer login:', erro.response ? erro.response.data : erro.message);
     }
+  }
+
+  function checarCamposObrigatorios() {
+    const algumCampoUsuarioVazio = Object.values(usuarioData).some(value => value === "" || value === null);
+
+    const { cep,cidade,uf,logradouro,numero,bairro } = enderecoData;
+    const algumCampoEnderecoVazio = [cep,cidade,uf,logradouro,numero,bairro].some((value) => value.trim() === "");
+
+    return algumCampoUsuarioVazio || algumCampoEnderecoVazio || formaPagamento === "" ? true : false;
   }
 
   const handleEnderecoInputChange = (e) => {
@@ -150,23 +174,43 @@ function Finalizar() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Exibe o selo verde de compra
-    setCompraConcluida(true);
-    // Barra de progresso de 7 segundos
-    let tempo = 7;
-    const interval = setInterval(() => {
-      if (tempo > 0) {
-        setTempoDeCompra(tempo);
-        tempo--;
-      } else {
-        clearInterval(interval);
-        // Redireciona para a tela de Meus Pedidos após o tempo
-        localStorage.removeItem('carrinho');
-        navigate('/meuspedidos');
+    const temCamposVazios = checarCamposObrigatorios();
+
+    if(temCamposVazios){
+      alert("Por favor, preencha todos os campos");
+    } else{
+
+      try {
+        let body = {
+          IDCLI:  usuarioData.idcli,
+          DATAPEDIDO: isoStringAtualBr,
+          TOTALCOMPRA: parseFloat(calcularTotal().toFixed(2)),
+          FORMAPAGAMENTO: formaPagamento,
+          ITENSPEDIDO: itensPedido
+        }
+
+        const resposta = await api.post("pedido/cadastrar", body);
+        console.log(resposta.data);
+
+        setCompraConcluida(true);
+        let tempo = 3;
+        const interval = setInterval(() => {
+          if (tempo > 0) {
+            setTempoDeCompra(tempo);
+            tempo--;
+          } else {
+            clearInterval(interval);
+            localStorage.removeItem('carrinho');
+            navigate('/meuspedidos');
+          }
+        }, 1000);
+    
+      } catch (erro) {
+        console.log('Erro ao fazer compra:', erro.response ? erro.response.data : erro.message);
       }
-    }, 1000);
+    }
   };
 
   const calcularTotal = () => {
@@ -175,8 +219,6 @@ function Finalizar() {
       return acc + precoComDesconto * produto.quantidade;
     }, 0);
   };
-
-  
 
   return (
     <div>
@@ -377,7 +419,7 @@ function Finalizar() {
                 {produtosCarrinho.map((produto, index) => (
                   <div key={index} className="product-info">
                     <p>{produto.nome}</p>
-                    <p>R$ {produto.valor}</p>
+                    <p>R$ {(produto.valor * (1 - produto.desconto)).toFixed(2).replace('.', ',')}</p>
                     <p>Quantidade: {produto.quantidade}</p>
                   </div>
                 ))}
