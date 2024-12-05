@@ -121,7 +121,7 @@ const Carrinho = () => {
           <p className="text-green h5 mb-0">R$ {totalCompra.toFixed(2).replace('.', ',')}</p>
         </div>
         <div className="d-flex flex-column align-items-center">
-          <button className="btn btn-comprar mb-2 button-fixed-width"  onClick={() =>{ window.scrollTo(0, 0);navigate("/finalizarcompra")}}>Finalizar Compra</button>
+          <button className="btn btn-comprar mb-2 button-fixed-width" disabled={carrinho.length === 0} onClick={() =>{ window.scrollTo(0, 0);navigate("/finalizarcompra")}}>Finalizar Compra</button>
           <button className="btn btn-voltarcomp button-fixed-width" onClick={() =>{ window.scrollTo(0, 0);navigate("/promocoes")}} >Voltar a Comprar</button>
         </div>
       </div>
