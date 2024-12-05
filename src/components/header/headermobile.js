@@ -12,6 +12,7 @@ function HeaderMobile() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProdutos, setFilteredProdutos] = useState([]);
+  const usuario = localStorage.getItem('usuario');
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -26,6 +27,7 @@ function HeaderMobile() {
       setFilteredProdutos(resultados);
     }
   }, [searchTerm]);
+
   const handleModalOpen = () => setShowModal(true);
   const handleModalClose = () => setShowModal(false);
 
@@ -87,14 +89,14 @@ function HeaderMobile() {
       <div className={`overlay-menu ${isMenuOpen ? 'open' : ''}`}>
         <nav className="navigation">
             <ul className="nav-list">
-            <li><Link to="/" onClick={() => navigate("/")}>Home</Link></li>
-                <li><Link to="/meuspedidos"onClick={() => navigate("/meuspedidos")}>Meus pedidos</Link></li>
-                <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
-                <li><Link to="/sobrenos" onClick={() => navigate("/sobrenos")}>Sobre nós</Link></li>
-                <li><Link to="/promocoes"onClick={() => navigate("/promocoes")}>Promoções</Link></li>
-                <li><Link to="/faq"onClick={() => navigate("/faq")}>FAQ</Link></li>
-                <li><Link to="/carrinho"onClick={() => navigate("/carrinho")}>Carrinho</Link></li>
-                <li><Link to="/favoritos" onClick={() => navigate("/favoritos")}>Favoritos</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to={!usuario ? "/login" : "/meuspedidos"}>Meus pedidos</Link></li>
+              <li><Link to="" onClick={handleModalOpen}>Atendimento</Link></li>
+              <li><Link to="/sobrenos">Sobre nós</Link></li>
+              <li><Link to="/promocoes">Promoções</Link></li>
+              <li><Link to="/faq">FAQ</Link></li>
+              <li><Link to={!usuario ? "/login" : "/carrinho"}>Carrinho</Link></li>
+              <li><Link to={!usuario ? "/login" : "/favoritos"}>Favoritos</Link></li>
             </ul>
         </nav>
     </div>

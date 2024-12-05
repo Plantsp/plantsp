@@ -6,12 +6,15 @@ import { FaUndo, FaShieldAlt, FaTruck } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
 import "./produto.css";
+import { useNavigate } from 'react-router-dom';
 
 function Produto() {
   const { id } = useParams();
   const [produtoInfo, setProdutoInfo] = useState({});
   const [quantidade, setQuantidade] = useState(1); // Estado para a quantidade
   const [produtoAdicionado, setProdutoAdicionado] = useState(false);
+  const navigate = useNavigate();
+  const usuario = localStorage.getItem('usuario');
 
   useEffect(() => {
     findProd(id);
@@ -47,6 +50,15 @@ function Produto() {
     setTimeout(() => setProdutoAdicionado(false), 3000);
   };
 
+  
+  function checarLogin(addToCart) {
+    if (!usuario) {
+      navigate('/login');
+    } else{
+      addToCart();
+    }
+  }
+
   // Funções para alterar a quantidade
   const aumentarQuantidade = () => {
     if (quantidade < 12) setQuantidade(quantidade + 1);
@@ -77,7 +89,7 @@ function Produto() {
                 <p className="quant mx-3 m-1">{quantidade}</p>
                 <button className="aumentar" onClick={aumentarQuantidade}>+</button>
               </div>
-              <button className="btn_compra mt-3" onClick={addToCart}>Adicionar ao carrinho</button>
+              <button className="btn_compra mt-3" onClick={() => checarLogin(addToCart)}>Adicionar ao carrinho</button>
 
               {produtoAdicionado && <div className="alert alert-success mt-3">Produto adicionado ao carrinho!</div>}
             </Col>

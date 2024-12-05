@@ -18,8 +18,7 @@ function Login() {
         Navigate('/perfil');
       }
     }, [Navigate]);
-  
-
+    
   async function loginUsuario(email, senha, e) {
     e.preventDefault();
     try {
