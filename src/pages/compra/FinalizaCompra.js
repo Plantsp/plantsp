@@ -373,14 +373,25 @@ function Finalizar() {
                 onChange={(e) => setFormaPagamento(e.target.value)}
               >
                 <option value="">Selecione uma forma de pagamento</option>
-                <option value="cartao">Cartão de Crédito</option>
-                <option value="boleto">Boleto Bancário</option>
-                <option value="pix">Pix</option>
+                <option value="CARTAODEBITO">Cartão de Débito</option>
+                <option value="CARTAOCREDITO">Cartão de Crédito</option>
+                <option value="BOLETO">Boleto Bancário</option>
+                <option value="PIX">Pix</option>
               </select>
 
               {/* Exibição dinâmica do ícone ou representação */}
+              
               <div className="pagamento-icone mt-3 text-center">
-              {formaPagamento === 'cartao' && (
+              {formaPagamento === 'CARTAODEBITO' && (
+                <div>
+                  <img 
+                  src="/assets/img/cartaodebito.png" 
+                  alt="Código de Barras" 
+                  className="img-fluid mt-2" 
+                />
+                </div>
+              )}
+              {formaPagamento === 'CARTAOCREDITO' && (
                 <div>
                   <img 
                   src="/assets/img/cartao.png" 
@@ -389,7 +400,7 @@ function Finalizar() {
                 />
                 </div>
               )}
-              {formaPagamento === 'boleto' && (
+              {formaPagamento === 'BOLETO' && (
               <div>
                 <img 
                   src="/assets/img/barras.png" 
@@ -398,7 +409,7 @@ function Finalizar() {
                 />
               </div>
               )}
-              {formaPagamento === 'pix' && (
+              {formaPagamento === 'PIX' && (
                 <div>
                 <img 
                   src="/assets/img/qrcode.png" 

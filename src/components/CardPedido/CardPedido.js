@@ -18,6 +18,17 @@ const CardPedido = ({ pedido }) => {
     const zonedDate = toZonedTime(utcDate, timeZone);
     return format(zonedDate, 'dd/MM/yyyy HH:mm:ss');
   }
+
+  const formatarFormaPagamento = (formaPagamento) => {
+    const formasPagamentoMap = {
+      CARTAODEBITO: "Cartão de Débito",
+      CARTAOCREDITO: "Cartão de Crédito",
+      BOLETO: "Boleto",
+      PIX: "PIX",
+    };
+  
+    return formasPagamentoMap[formaPagamento] || formaPagamento;
+  };
   
   return (
     <div className="card-pedido w-100">
@@ -32,7 +43,7 @@ const CardPedido = ({ pedido }) => {
       </div>
 
       <p className="det">Comprado em: {formatarDataBr((pedido.datapedido + "Z"))}</p>
-      <p className="det">Forma de pagamento: {pedido.formapagamento}</p>
+      <p className="det">Forma de pagamento: {formatarFormaPagamento(pedido.formapagamento)}</p>
       <p className="det">Total da compra: {formatarValor(pedido.totalcompra)}</p>
     </div>
   );
