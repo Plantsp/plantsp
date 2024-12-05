@@ -17,7 +17,7 @@ const CardPedido = ({ pedido }) => {
       <div className="detalhes-produto py-3">
         {pedido.itenspedido.map((item, index) => (
           <p className="det" key={index}>
-            {item.nome} - {item.quantidade} unid. - {formatarValor(item.subtotal)}
+            {item.nomeprod} - {item.quantidade} unid. - {formatarValor(item.subtotal)}
           </p>
         ))}
       </div>
