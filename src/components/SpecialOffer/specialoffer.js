@@ -11,7 +11,7 @@ function SpecialOffer() {
       {/* Lado esquerdo com as informações */}
       <div className="offer-text">
         <h1>Oferta <br/><span className="especial">ESPECIAL</span></h1>
-        <p>Procuramos criar uma ligação profunda entre o <br></br>software e o usuário.</p>
+        <p>Vaso Jardineira Luxo - Grande Floreira em <br></br>Polietileno com Acabamento Grafiato</p>
         <div className="price-container">
           <span className="price-original">De R$ 120,00</span>
           <span className="price-discount">Por R$ 90,00</span>
