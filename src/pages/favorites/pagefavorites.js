@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importando ícones de coração
 import "./pagefavorite.css";
 import Header from '../../components/header/headerdesktop';
+import Footer from '../../components/footer/footer';
 import ReactStars from "react-rating-stars-component";
 import api from '../../services/api';
 
@@ -45,7 +46,7 @@ function FavoritesPage() {
         <h2 className="title-top pt-3">Produtos favoritados</h2>
         <p className="favorites-count">Total de produtos favoritados: {favorites.length}</p> {/* Exibe a contagem */}
         {favorites.length > 0 ? (
-          <div className="favorites-container">
+          <div className="favorites-container pb-4">
             {favorites.map(produto => (
               <div key={produto.idprod} className="favorite-card">
                 <img src={process.env.PUBLIC_URL + produto.imagem} alt="planta" className="favorite-card-image" />
@@ -81,6 +82,7 @@ function FavoritesPage() {
           <p className="no-favorites">Nenhum produto favorito adicionado.</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 }
